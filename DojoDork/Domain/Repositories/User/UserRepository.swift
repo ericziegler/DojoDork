@@ -32,6 +32,9 @@ final class UserRepository: UserRepositoryProtocol {
         guard let token = response?["token"] as? String else {
             throw APIError.decodingFailed
         }
+        
+        networkService.setCredentials(["token": token])
+        
         return token
     }
     

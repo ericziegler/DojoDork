@@ -6,9 +6,19 @@ import SwiftUI
 
 @Observable
 @MainActor
-
 final class AppState {
     
     var isAuthenticated: Bool = false
+    
+    private let networkService: NetworkServiceProtocol
+    
+    init(networkService: NetworkServiceProtocol = DependencyContainer.resolveNetworkService()) {
+        self.networkService = networkService
+        checkCredentials()
+    }
+    
+    private func checkCredentials() {
+        isAuthenticated = networkService.credentials != nil
+    }
     
 }
