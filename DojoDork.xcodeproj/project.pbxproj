@@ -22,6 +22,7 @@
 		78220FEC2DB47C9100473F39 /* AttendanceLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78220FEB2DB47C8D00473F39 /* AttendanceLog.swift */; };
 		78220FEF2DB47CB300473F39 /* StudentSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78220FEE2DB47CAA00473F39 /* StudentSummary.swift */; };
 		78220FF12DB47CC400473F39 /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78220FF02DB47CC100473F39 /* DateFormatter+Extensions.swift */; };
+		78220FF42DB4807B00473F39 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 78220FF32DB4807B00473F39 /* Swinject */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78220FF42DB4807B00473F39 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +249,7 @@
 			);
 			name = DojoDork;
 			packageProductDependencies = (
+				78220FF32DB4807B00473F39 /* Swinject */,
 			);
 			productName = DojoDork;
 			productReference = 78220FB02DB4782100473F39 /* DojoDork.app */;
@@ -276,6 +279,9 @@
 			);
 			mainGroup = 78220FA72DB4782100473F39;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				78220FF22DB4807B00473F39 /* XCRemoteSwiftPackageReference "Swinject" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 78220FB12DB4782100473F39 /* Products */;
 			projectDirPath = "";
@@ -458,6 +464,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -488,6 +495,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -523,6 +531,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		78220FF22DB4807B00473F39 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		78220FF32DB4807B00473F39 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 78220FF22DB4807B00473F39 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 78220FA82DB4782100473F39 /* Project object */;
 }
