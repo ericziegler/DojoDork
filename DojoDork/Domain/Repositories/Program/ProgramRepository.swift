@@ -20,6 +20,16 @@ final class ProgramRepository: ProgramRepositoryProtocol {
         return try JSONParser.parse(json: data)
     }
     
+    func updateProgram(id: String, name: String) async throws {
+        _ = try await networkService.request(
+            endpoint: "program/update.php",
+            parameters: [
+                "program_id": id,
+                "name": name
+            ]
+        )
+    }
+    
     func listPrograms() async throws -> Programs {
         let data = try await networkService.request(
             endpoint: "program/list.php"

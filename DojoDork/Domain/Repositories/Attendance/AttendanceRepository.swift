@@ -12,10 +12,14 @@ final class AttendanceRepository: AttendanceRepositoryProtocol {
         self.networkService = networkService
     }
 
-    func markAttendance(for studentId: String, on date: String) async throws {
+    func toggleAttendance(for studentId: String, on date: String, didAttend: Bool) async throws {
         _ = try await networkService.request(
-            endpoint: "attendance/mark.php",
-            parameters: ["student_id": studentId, "date": date]
+            endpoint: "attendance/toggle.php",
+            parameters: [
+                "student_id": studentId,
+                "date": date,
+                "didAttend": didAttend ? "1" : "0"
+            ]
         )
     }
     
