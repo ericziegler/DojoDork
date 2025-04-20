@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		78220FC72DB478BE00473F39 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78220FC12DB478BE00473F39 /* Preview Assets.xcassets */; };
 		78220FC82DB478BE00473F39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78220FC32DB478BE00473F39 /* Assets.xcassets */; };
-		78220FC92DB478BE00473F39 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78220FC42DB478BE00473F39 /* ContentView.swift */; };
 		78220FCA2DB478BE00473F39 /* DojoDorkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78220FC52DB478BE00473F39 /* DojoDorkApp.swift */; };
 		78220FCD2DB4790000473F39 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78220FCC2DB4790000473F39 /* Colors.xcassets */; };
 		78220FD52DB4798800473F39 /* OPTIBernhardGothic-XHeavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78220FD42DB4798800473F39 /* OPTIBernhardGothic-XHeavy.otf */; };
@@ -42,13 +41,33 @@
 		782210252DB4911300473F39 /* AttendanceRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210242DB4910E00473F39 /* AttendanceRepositoryProtocol.swift */; };
 		782210272DB4912700473F39 /* AttendanceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210262DB4912200473F39 /* AttendanceRepository.swift */; };
 		7822102A2DB49E6600473F39 /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210292DB49E6400473F39 /* TextStyles.swift */; };
+		7822102D2DB56F4100473F39 /* RequestCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822102C2DB56F4100473F39 /* RequestCodeView.swift */; };
+		7822102F2DB56F4900473F39 /* RequestCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822102E2DB56F4400473F39 /* RequestCodeViewModel.swift */; };
+		782210332DB56F9F00473F39 /* CodeEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210322DB56F9F00473F39 /* CodeEntryView.swift */; };
+		782210352DB56FA700473F39 /* CodeEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210342DB56FA200473F39 /* CodeEntryViewModel.swift */; };
+		782210382DB56FFA00473F39 /* CreateAccountVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210372DB56FF700473F39 /* CreateAccountVIewModel.swift */; };
+		7822103A2DB5700000473F39 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210392DB56FFD00473F39 /* CreateAccountView.swift */; };
+		7822103E2DB5705C00473F39 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822103D2DB5705A00473F39 /* MainTabView.swift */; };
+		782210402DB5706100473F39 /* MainTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822103F2DB5705E00473F39 /* MainTabViewModel.swift */; };
+		782210432DB5709D00473F39 /* AttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210422DB5709B00473F39 /* AttendanceView.swift */; };
+		782210452DB570AA00473F39 /* AttendanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210442DB570A700473F39 /* AttendanceViewModel.swift */; };
+		782210482DB5710900473F39 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210472DB5710600473F39 /* DatePickerView.swift */; };
+		7822104C2DB5713B00473F39 /* RosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822104B2DB5713900473F39 /* RosterView.swift */; };
+		7822104E2DB5714000473F39 /* RoterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822104D2DB5713E00473F39 /* RoterViewModel.swift */; };
+		782210512DB5718700473F39 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210502DB5718600473F39 /* ProfileView.swift */; };
+		782210532DB5718E00473F39 /* ProfileVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210522DB5718A00473F39 /* ProfileVIewModel.swift */; };
+		782210572DB571F000473F39 /* EditEntityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210562DB571DA00473F39 /* EditEntityView.swift */; };
+		7822105A2DB5720F00473F39 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210592DB5720D00473F39 /* LoadingView.swift */; };
+		7822105E2DB5723F00473F39 /* Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822105D2DB5723C00473F39 /* Separator.swift */; };
+		782210632DB5732200473F39 /* AppField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210622DB5731F00473F39 /* AppField.swift */; };
+		782210662DB5761B00473F39 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210652DB5761700473F39 /* ActionButton.swift */; };
+		782210682DB5784A00473F39 /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210672DB5784A00473F39 /* LinkButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		78220FB02DB4782100473F39 /* DojoDork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DojoDork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78220FC12DB478BE00473F39 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		78220FC32DB478BE00473F39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		78220FC42DB478BE00473F39 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		78220FC52DB478BE00473F39 /* DojoDorkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DojoDorkApp.swift; sourceTree = "<group>"; };
 		78220FCC2DB4790000473F39 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		78220FD42DB4798800473F39 /* OPTIBernhardGothic-XHeavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OPTIBernhardGothic-XHeavy.otf"; sourceTree = "<group>"; };
@@ -81,6 +100,27 @@
 		782210242DB4910E00473F39 /* AttendanceRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceRepositoryProtocol.swift; sourceTree = "<group>"; };
 		782210262DB4912200473F39 /* AttendanceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceRepository.swift; sourceTree = "<group>"; };
 		782210292DB49E6400473F39 /* TextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
+		7822102C2DB56F4100473F39 /* RequestCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCodeView.swift; sourceTree = "<group>"; };
+		7822102E2DB56F4400473F39 /* RequestCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCodeViewModel.swift; sourceTree = "<group>"; };
+		782210322DB56F9F00473F39 /* CodeEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeEntryView.swift; sourceTree = "<group>"; };
+		782210342DB56FA200473F39 /* CodeEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeEntryViewModel.swift; sourceTree = "<group>"; };
+		782210372DB56FF700473F39 /* CreateAccountVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVIewModel.swift; sourceTree = "<group>"; };
+		782210392DB56FFD00473F39 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
+		7822103D2DB5705A00473F39 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		7822103F2DB5705E00473F39 /* MainTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewModel.swift; sourceTree = "<group>"; };
+		782210422DB5709B00473F39 /* AttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceView.swift; sourceTree = "<group>"; };
+		782210442DB570A700473F39 /* AttendanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceViewModel.swift; sourceTree = "<group>"; };
+		782210472DB5710600473F39 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
+		7822104B2DB5713900473F39 /* RosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosterView.swift; sourceTree = "<group>"; };
+		7822104D2DB5713E00473F39 /* RoterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoterViewModel.swift; sourceTree = "<group>"; };
+		782210502DB5718600473F39 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		782210522DB5718A00473F39 /* ProfileVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVIewModel.swift; sourceTree = "<group>"; };
+		782210562DB571DA00473F39 /* EditEntityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEntityView.swift; sourceTree = "<group>"; };
+		782210592DB5720D00473F39 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		7822105D2DB5723C00473F39 /* Separator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Separator.swift; sourceTree = "<group>"; };
+		782210622DB5731F00473F39 /* AppField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppField.swift; sourceTree = "<group>"; };
+		782210652DB5761700473F39 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		782210672DB5784A00473F39 /* LinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,7 +214,9 @@
 		78220FD12DB4792D00473F39 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				78220FC42DB478BE00473F39 /* ContentView.swift */,
+				7822102B2DB56F1E00473F39 /* Auth */,
+				7822103B2DB5704800473F39 /* Main */,
+				7822105F2DB5725B00473F39 /* Common */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -182,7 +224,10 @@
 		78220FD22DB4795800473F39 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				782210642DB5760600473F39 /* Buttons */,
 				78220FDA2DB47B0500473F39 /* Containers */,
+				7822105C2DB5723200473F39 /* Decoration */,
+				782210602DB5727B00473F39 /* Input */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -369,6 +414,125 @@
 			path = Modifiers;
 			sourceTree = "<group>";
 		};
+		7822102B2DB56F1E00473F39 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				782210362DB56FEB00473F39 /* CreateAccount */,
+				782210312DB56F9100473F39 /* CodeEntry */,
+				782210302DB56F8800473F39 /* RequestCode */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		782210302DB56F8800473F39 /* RequestCode */ = {
+			isa = PBXGroup;
+			children = (
+				7822102C2DB56F4100473F39 /* RequestCodeView.swift */,
+				7822102E2DB56F4400473F39 /* RequestCodeViewModel.swift */,
+			);
+			path = RequestCode;
+			sourceTree = "<group>";
+		};
+		782210312DB56F9100473F39 /* CodeEntry */ = {
+			isa = PBXGroup;
+			children = (
+				782210322DB56F9F00473F39 /* CodeEntryView.swift */,
+				782210342DB56FA200473F39 /* CodeEntryViewModel.swift */,
+			);
+			path = CodeEntry;
+			sourceTree = "<group>";
+		};
+		782210362DB56FEB00473F39 /* CreateAccount */ = {
+			isa = PBXGroup;
+			children = (
+				782210392DB56FFD00473F39 /* CreateAccountView.swift */,
+				782210372DB56FF700473F39 /* CreateAccountVIewModel.swift */,
+			);
+			path = CreateAccount;
+			sourceTree = "<group>";
+		};
+		7822103B2DB5704800473F39 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7822103C2DB5705500473F39 /* MainTab */,
+				782210412DB5708D00473F39 /* Attendance */,
+				782210492DB5712400473F39 /* Roster */,
+				7822104F2DB5717E00473F39 /* Profile */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		7822103C2DB5705500473F39 /* MainTab */ = {
+			isa = PBXGroup;
+			children = (
+				7822103D2DB5705A00473F39 /* MainTabView.swift */,
+				7822103F2DB5705E00473F39 /* MainTabViewModel.swift */,
+			);
+			path = MainTab;
+			sourceTree = "<group>";
+		};
+		782210412DB5708D00473F39 /* Attendance */ = {
+			isa = PBXGroup;
+			children = (
+				782210422DB5709B00473F39 /* AttendanceView.swift */,
+				782210442DB570A700473F39 /* AttendanceViewModel.swift */,
+			);
+			path = Attendance;
+			sourceTree = "<group>";
+		};
+		782210492DB5712400473F39 /* Roster */ = {
+			isa = PBXGroup;
+			children = (
+				7822104B2DB5713900473F39 /* RosterView.swift */,
+				7822104D2DB5713E00473F39 /* RoterViewModel.swift */,
+			);
+			path = Roster;
+			sourceTree = "<group>";
+		};
+		7822104F2DB5717E00473F39 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				782210502DB5718600473F39 /* ProfileView.swift */,
+				782210522DB5718A00473F39 /* ProfileVIewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		7822105C2DB5723200473F39 /* Decoration */ = {
+			isa = PBXGroup;
+			children = (
+				7822105D2DB5723C00473F39 /* Separator.swift */,
+			);
+			path = Decoration;
+			sourceTree = "<group>";
+		};
+		7822105F2DB5725B00473F39 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				782210472DB5710600473F39 /* DatePickerView.swift */,
+				782210562DB571DA00473F39 /* EditEntityView.swift */,
+				782210592DB5720D00473F39 /* LoadingView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		782210602DB5727B00473F39 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				782210622DB5731F00473F39 /* AppField.swift */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
+		782210642DB5760600473F39 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				782210652DB5761700473F39 /* ActionButton.swift */,
+				782210672DB5784A00473F39 /* LinkButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -453,31 +617,51 @@
 				78220FE92DB47C6E00473F39 /* Program.swift in Sources */,
 				78220FD92DB47A2800473F39 /* Font+Extensions.swift in Sources */,
 				782210032DB4861D00473F39 /* CacheService.swift in Sources */,
+				7822102F2DB56F4900473F39 /* RequestCodeViewModel.swift in Sources */,
 				782210202DB490BF00473F39 /* StudentRepositoryProtocol.swift in Sources */,
+				782210452DB570AA00473F39 /* AttendanceViewModel.swift in Sources */,
 				782210062DB486BB00473F39 /* APIError.swift in Sources */,
 				78220FF62DB4854F00473F39 /* OverviewReport.swift in Sources */,
+				782210572DB571F000473F39 /* EditEntityView.swift in Sources */,
 				7822101D2DB48F7B00473F39 /* ProgramRepository.swift in Sources */,
 				782210102DB48BA100473F39 /* JSONParser.swift in Sources */,
 				78220FE12DB47B5C00473F39 /* DependencyContainer.swift in Sources */,
+				7822105E2DB5723F00473F39 /* Separator.swift in Sources */,
 				782210222DB490CF00473F39 /* StudentRepository.swift in Sources */,
+				782210432DB5709D00473F39 /* AttendanceView.swift in Sources */,
 				7822102A2DB49E6600473F39 /* TextStyles.swift in Sources */,
+				782210482DB5710900473F39 /* DatePickerView.swift in Sources */,
 				78220FE32DB47BA900473F39 /* User.swift in Sources */,
+				782210332DB56F9F00473F39 /* CodeEntryView.swift in Sources */,
+				7822103E2DB5705C00473F39 /* MainTabView.swift in Sources */,
+				782210512DB5718700473F39 /* ProfileView.swift in Sources */,
 				782210012DB4861900473F39 /* CacheServiceProtocol.swift in Sources */,
+				782210382DB56FFA00473F39 /* CreateAccountVIewModel.swift in Sources */,
 				782210252DB4911300473F39 /* AttendanceRepositoryProtocol.swift in Sources */,
+				782210352DB56FA700473F39 /* CodeEntryViewModel.swift in Sources */,
+				7822102D2DB56F4100473F39 /* RequestCodeView.swift in Sources */,
 				782210122DB48BD000473F39 /* Notification+Extensions.swift in Sources */,
+				782210402DB5706100473F39 /* MainTabViewModel.swift in Sources */,
+				782210632DB5732200473F39 /* AppField.swift in Sources */,
+				782210532DB5718E00473F39 /* ProfileVIewModel.swift in Sources */,
 				78220FE62DB47BBE00473F39 /* Students.swift in Sources */,
 				782210182DB48E7800473F39 /* UserRepository.swift in Sources */,
 				78220FFD2DB4860300473F39 /* NetworkService.swift in Sources */,
-				78220FC92DB478BE00473F39 /* ContentView.swift in Sources */,
 				78220FEC2DB47C9100473F39 /* AttendanceLog.swift in Sources */,
 				78220FCA2DB478BE00473F39 /* DojoDorkApp.swift in Sources */,
 				7822100C2DB486EA00473F39 /* ResponseStatus.swift in Sources */,
 				78220FEF2DB47CB300473F39 /* StudentSummary.swift in Sources */,
+				7822104E2DB5714000473F39 /* RoterViewModel.swift in Sources */,
+				7822103A2DB5700000473F39 /* CreateAccountView.swift in Sources */,
 				7822101B2DB48F6900473F39 /* ProgramRepositoryProtocol.swift in Sources */,
 				78220FF12DB47CC400473F39 /* DateFormatter+Extensions.swift in Sources */,
 				78220FFB2DB485DF00473F39 /* NetworkServiceProtocol.swift in Sources */,
+				7822104C2DB5713B00473F39 /* RosterView.swift in Sources */,
 				78220FDC2DB47B0D00473F39 /* SolidBackground.swift in Sources */,
 				782210272DB4912700473F39 /* AttendanceRepository.swift in Sources */,
+				7822105A2DB5720F00473F39 /* LoadingView.swift in Sources */,
+				782210662DB5761B00473F39 /* ActionButton.swift in Sources */,
+				782210682DB5784A00473F39 /* LinkButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

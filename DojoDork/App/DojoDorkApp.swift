@@ -8,7 +8,7 @@ import SwiftUI
 struct DojoDorkApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RequestCodeView()
         }
     }
 }

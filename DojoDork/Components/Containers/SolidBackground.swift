@@ -6,8 +6,7 @@ import SwiftUI
 
 struct SolidBackground<Content: View>: View {
 
-    // TODO: EZ - Change default color
-    var color = Color.black
+    var color: Color = .appBackground
     @ViewBuilder var content: () -> Content
     
     var body: some View {
