@@ -6,9 +6,16 @@ import SwiftUI
 
 @main
 struct DojoDorkApp: App {
+    
+    @State private var appState = AppState()
+    
     var body: some Scene {
         WindowGroup {
-            RequestCodeView()
+            if appState.isAuthenticated {
+                MainTabView()
+            } else {
+                RequestCodeView()
+            }
         }
     }
 }
