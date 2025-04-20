@@ -4,6 +4,8 @@
 
 import Foundation
 
+typealias Students = [Student]
+
 struct Student: Codable, Identifiable {
     let id: String
     let name: String
@@ -14,4 +16,16 @@ struct Student: Codable, Identifiable {
         case name
         case lastPromotionDate = "last_promotion_date"
     }
+}
+
+extension Student {
+ 
+    static var mockData: Student {
+        .init(
+            id: "mock-student-id",
+            name: "Test Student",
+            lastPromotionDate: "2025-02-14"
+        )
+    }
+    
 }

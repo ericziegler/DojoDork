@@ -23,6 +23,7 @@
 		78220FEF2DB47CB300473F39 /* StudentSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78220FEE2DB47CAA00473F39 /* StudentSummary.swift */; };
 		78220FF12DB47CC400473F39 /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78220FF02DB47CC100473F39 /* DateFormatter+Extensions.swift */; };
 		78220FF42DB4807B00473F39 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 78220FF32DB4807B00473F39 /* Swinject */; };
+		78220FF62DB4854F00473F39 /* OverviewReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78220FF52DB4854D00473F39 /* OverviewReport.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		78220FEB2DB47C8D00473F39 /* AttendanceLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceLog.swift; sourceTree = "<group>"; };
 		78220FEE2DB47CAA00473F39 /* StudentSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentSummary.swift; sourceTree = "<group>"; };
 		78220FF02DB47CC100473F39 /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
+		78220FF52DB4854D00473F39 /* OverviewReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewReport.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +229,7 @@
 		78220FED2DB47CA200473F39 /* Reports */ = {
 			isa = PBXGroup;
 			children = (
+				78220FF52DB4854D00473F39 /* OverviewReport.swift */,
 				78220FEE2DB47CAA00473F39 /* StudentSummary.swift */,
 			);
 			path = Reports;
@@ -313,6 +316,7 @@
 			files = (
 				78220FE92DB47C6E00473F39 /* Program.swift in Sources */,
 				78220FD92DB47A2800473F39 /* Font+Extensions.swift in Sources */,
+				78220FF62DB4854F00473F39 /* OverviewReport.swift in Sources */,
 				78220FE12DB47B5C00473F39 /* DependencyContainer.swift in Sources */,
 				78220FE32DB47BA900473F39 /* User.swift in Sources */,
 				78220FE62DB47BBE00473F39 /* Students.swift in Sources */,
