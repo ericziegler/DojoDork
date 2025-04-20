@@ -429,8 +429,8 @@
 			isa = PBXGroup;
 			children = (
 				782210362DB56FEB00473F39 /* CreateAccount */,
-				782210312DB56F9100473F39 /* CodeEntry */,
 				782210302DB56F8800473F39 /* RequestCode */,
+				782210312DB56F9100473F39 /* CodeEntry */,
 			);
 			path = Auth;
 			sourceTree = "<group>";

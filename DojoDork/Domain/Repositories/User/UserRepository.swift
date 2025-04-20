@@ -21,6 +21,17 @@ final class UserRepository: UserRepositoryProtocol {
         return try JSONParser.parse(json: data)
     }
     
+    func requestLoginCode(email: String) async throws {
+        let data = try await networkService.request(
+            endpoint: "user/send_verification.php",
+            parameters: ["email": email],
+            includeCredentials: false
+        )
+        
+        // Parse status or throw
+        let _: ResponseStatus = try JSONParser.parse(json: data)
+    }
+    
     func validateLoginCode(email: String, code: String) async throws -> String {
         let data = try await networkService.request(
             endpoint: "user/validate_code.php",
