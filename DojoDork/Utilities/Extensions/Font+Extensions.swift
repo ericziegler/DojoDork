@@ -4,10 +4,64 @@
 
 import SwiftUI
 
+// MARK: - Custom Fonts
+
 extension Font {
  
-    static func bernhardGothic(size: Double) -> Font {
+    private static func bernhardGothic(size: Double) -> Font {
         .custom("OPTIBernhardGothic-XHeavy", size: size)
     }
     
+}
+
+// MARK: - App Fonts
+
+extension Font {
+ 
+    static var appTitle: Font {
+        .bernhardGothic(size: 28)
+    }
+    
+    static var appSubtitle: Font {
+        .system(size: 22, weight: .medium)
+    }
+    
+    static var appBody: Font {
+        .system(size: 19, weight: .regular)
+    }
+    
+    static var appBodyMedium: Font {
+        .system(size: 19, weight: .medium)
+    }
+    
+    static var appCaption: Font {
+        .system(size: 16, weight: .medium)
+    }
+    
+    static var appButton: Font {
+        .system(size: 21, weight: .semibold)
+    }
+    
+}
+
+#Preview {
+    VStack {
+        Text("Title")
+            .appTitleStyle()
+        
+        Text("Subtitle")
+            .appSubtitleStyle()
+        
+        Text("Body")
+            .appBodyStyle()
+        
+        Text("Body Medium")
+            .appBodyMediumStyle()
+        
+        Text("Caption")
+            .appCaptionStyle()
+        
+        Text("Button")
+            .appButtonStyle()
+    }
 }

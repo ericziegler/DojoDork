@@ -1,0 +1,81 @@
+//
+// Created by Eric Ziegler on 4/19/25
+//  
+
+import SwiftUI
+
+// MARK: - Modifiers
+
+private struct AppTitleStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.appTitle)
+            .textCase(.uppercase)
+    }
+}
+
+private struct AppSubtitleStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.appSubtitle)
+            .textCase(.uppercase)
+            .tracking(2)
+    }
+}
+
+private struct AppBodyStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.appBody)
+    }
+}
+
+private struct AppBodyMediumStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.appBodyMedium)
+    }
+}
+
+private struct AppCaptionStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.appCaption)
+    }
+}
+
+private struct AppButtonStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.appButton)
+            .textCase(.uppercase)
+    }
+}
+
+// MARK: - View Extensions
+
+extension View {
+    func appTitleStyle() -> some View {
+        modifier(AppTitleStyle())
+    }
+
+    func appSubtitleStyle() -> some View {
+        modifier(AppSubtitleStyle())
+    }
+
+    func appBodyStyle() -> some View {
+        modifier(AppBodyStyle())
+    }
+
+    func appBodyMediumStyle() -> some View {
+        modifier(AppBodyMediumStyle())
+    }
+
+    func appCaptionStyle() -> some View {
+        modifier(AppCaptionStyle())
+    }
+
+    func appButtonStyle() -> some View {
+        modifier(AppButtonStyle())
+    }
+}

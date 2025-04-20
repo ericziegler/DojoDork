@@ -41,6 +41,7 @@
 		782210222DB490CF00473F39 /* StudentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210212DB490CB00473F39 /* StudentRepository.swift */; };
 		782210252DB4911300473F39 /* AttendanceRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210242DB4910E00473F39 /* AttendanceRepositoryProtocol.swift */; };
 		782210272DB4912700473F39 /* AttendanceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210262DB4912200473F39 /* AttendanceRepository.swift */; };
+		7822102A2DB49E6600473F39 /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210292DB49E6400473F39 /* TextStyles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		782210212DB490CB00473F39 /* StudentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentRepository.swift; sourceTree = "<group>"; };
 		782210242DB4910E00473F39 /* AttendanceRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceRepositoryProtocol.swift; sourceTree = "<group>"; };
 		782210262DB4912200473F39 /* AttendanceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceRepository.swift; sourceTree = "<group>"; };
+		782210292DB49E6400473F39 /* TextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				78220FD02DB4792900473F39 /* Domain */,
 				78220FD12DB4792D00473F39 /* Presentation */,
 				78220FD22DB4795800473F39 /* Components */,
+				782210282DB49E5A00473F39 /* Modifiers */,
 				78220FD32DB4795D00473F39 /* Utilities */,
 				78220FCB2DB478C100473F39 /* Resources */,
 				78220FD62DB47A0600473F39 /* Info.plist */,
@@ -358,6 +361,14 @@
 			path = Attendance;
 			sourceTree = "<group>";
 		};
+		782210282DB49E5A00473F39 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				782210292DB49E6400473F39 /* TextStyles.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -449,6 +460,7 @@
 				782210102DB48BA100473F39 /* JSONParser.swift in Sources */,
 				78220FE12DB47B5C00473F39 /* DependencyContainer.swift in Sources */,
 				782210222DB490CF00473F39 /* StudentRepository.swift in Sources */,
+				7822102A2DB49E6600473F39 /* TextStyles.swift in Sources */,
 				78220FE32DB47BA900473F39 /* User.swift in Sources */,
 				782210012DB4861900473F39 /* CacheServiceProtocol.swift in Sources */,
 				782210252DB4911300473F39 /* AttendanceRepositoryProtocol.swift in Sources */,
