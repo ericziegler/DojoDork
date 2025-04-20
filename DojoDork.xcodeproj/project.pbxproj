@@ -33,6 +33,14 @@
 		7822100C2DB486EA00473F39 /* ResponseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822100B2DB486E800473F39 /* ResponseStatus.swift */; };
 		782210102DB48BA100473F39 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822100F2DB48B9F00473F39 /* JSONParser.swift */; };
 		782210122DB48BD000473F39 /* Notification+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210112DB48BCC00473F39 /* Notification+Extensions.swift */; };
+		782210162DB48E6A00473F39 /* UserRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210152DB48E6700473F39 /* UserRepositoryProtocol.swift */; };
+		782210182DB48E7800473F39 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210172DB48E7500473F39 /* UserRepository.swift */; };
+		7822101B2DB48F6900473F39 /* ProgramRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822101A2DB48F6300473F39 /* ProgramRepositoryProtocol.swift */; };
+		7822101D2DB48F7B00473F39 /* ProgramRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822101C2DB48F7700473F39 /* ProgramRepository.swift */; };
+		782210202DB490BF00473F39 /* StudentRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822101F2DB490BA00473F39 /* StudentRepositoryProtocol.swift */; };
+		782210222DB490CF00473F39 /* StudentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210212DB490CB00473F39 /* StudentRepository.swift */; };
+		782210252DB4911300473F39 /* AttendanceRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210242DB4910E00473F39 /* AttendanceRepositoryProtocol.swift */; };
+		782210272DB4912700473F39 /* AttendanceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210262DB4912200473F39 /* AttendanceRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +71,14 @@
 		7822100B2DB486E800473F39 /* ResponseStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseStatus.swift; sourceTree = "<group>"; };
 		7822100F2DB48B9F00473F39 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		782210112DB48BCC00473F39 /* Notification+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extensions.swift"; sourceTree = "<group>"; };
+		782210152DB48E6700473F39 /* UserRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryProtocol.swift; sourceTree = "<group>"; };
+		782210172DB48E7500473F39 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		7822101A2DB48F6300473F39 /* ProgramRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramRepositoryProtocol.swift; sourceTree = "<group>"; };
+		7822101C2DB48F7700473F39 /* ProgramRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramRepository.swift; sourceTree = "<group>"; };
+		7822101F2DB490BA00473F39 /* StudentRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentRepositoryProtocol.swift; sourceTree = "<group>"; };
+		782210212DB490CB00473F39 /* StudentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentRepository.swift; sourceTree = "<group>"; };
+		782210242DB4910E00473F39 /* AttendanceRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceRepositoryProtocol.swift; sourceTree = "<group>"; };
+		782210262DB4912200473F39 /* AttendanceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,8 +161,9 @@
 		78220FD02DB4792900473F39 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				78220FF92DB485D700473F39 /* Services */,
 				78220FDD2DB47B3E00473F39 /* Models */,
+				782210132DB48E5500473F39 /* Repositories */,
+				78220FF92DB485D700473F39 /* Services */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -294,6 +311,53 @@
 			path = NetworkComponents;
 			sourceTree = "<group>";
 		};
+		782210132DB48E5500473F39 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				782210232DB4910900473F39 /* Attendance */,
+				782210192DB48F5B00473F39 /* Program */,
+				7822101E2DB490B400473F39 /* Student */,
+				782210142DB48E5D00473F39 /* User */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		782210142DB48E5D00473F39 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				782210152DB48E6700473F39 /* UserRepositoryProtocol.swift */,
+				782210172DB48E7500473F39 /* UserRepository.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		782210192DB48F5B00473F39 /* Program */ = {
+			isa = PBXGroup;
+			children = (
+				7822101A2DB48F6300473F39 /* ProgramRepositoryProtocol.swift */,
+				7822101C2DB48F7700473F39 /* ProgramRepository.swift */,
+			);
+			path = Program;
+			sourceTree = "<group>";
+		};
+		7822101E2DB490B400473F39 /* Student */ = {
+			isa = PBXGroup;
+			children = (
+				7822101F2DB490BA00473F39 /* StudentRepositoryProtocol.swift */,
+				782210212DB490CB00473F39 /* StudentRepository.swift */,
+			);
+			path = Student;
+			sourceTree = "<group>";
+		};
+		782210232DB4910900473F39 /* Attendance */ = {
+			isa = PBXGroup;
+			children = (
+				782210242DB4910E00473F39 /* AttendanceRepositoryProtocol.swift */,
+				782210262DB4912200473F39 /* AttendanceRepository.swift */,
+			);
+			path = Attendance;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -373,27 +437,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				782210162DB48E6A00473F39 /* UserRepositoryProtocol.swift in Sources */,
 				7822100A2DB486D400473F39 /* NetworkConstants.swift in Sources */,
 				78220FE92DB47C6E00473F39 /* Program.swift in Sources */,
 				78220FD92DB47A2800473F39 /* Font+Extensions.swift in Sources */,
 				782210032DB4861D00473F39 /* CacheService.swift in Sources */,
+				782210202DB490BF00473F39 /* StudentRepositoryProtocol.swift in Sources */,
 				782210062DB486BB00473F39 /* APIError.swift in Sources */,
 				78220FF62DB4854F00473F39 /* OverviewReport.swift in Sources */,
+				7822101D2DB48F7B00473F39 /* ProgramRepository.swift in Sources */,
 				782210102DB48BA100473F39 /* JSONParser.swift in Sources */,
 				78220FE12DB47B5C00473F39 /* DependencyContainer.swift in Sources */,
+				782210222DB490CF00473F39 /* StudentRepository.swift in Sources */,
 				78220FE32DB47BA900473F39 /* User.swift in Sources */,
 				782210012DB4861900473F39 /* CacheServiceProtocol.swift in Sources */,
+				782210252DB4911300473F39 /* AttendanceRepositoryProtocol.swift in Sources */,
 				782210122DB48BD000473F39 /* Notification+Extensions.swift in Sources */,
 				78220FE62DB47BBE00473F39 /* Students.swift in Sources */,
+				782210182DB48E7800473F39 /* UserRepository.swift in Sources */,
 				78220FFD2DB4860300473F39 /* NetworkService.swift in Sources */,
 				78220FC92DB478BE00473F39 /* ContentView.swift in Sources */,
 				78220FEC2DB47C9100473F39 /* AttendanceLog.swift in Sources */,
 				78220FCA2DB478BE00473F39 /* DojoDorkApp.swift in Sources */,
 				7822100C2DB486EA00473F39 /* ResponseStatus.swift in Sources */,
 				78220FEF2DB47CB300473F39 /* StudentSummary.swift in Sources */,
+				7822101B2DB48F6900473F39 /* ProgramRepositoryProtocol.swift in Sources */,
 				78220FF12DB47CC400473F39 /* DateFormatter+Extensions.swift in Sources */,
 				78220FFB2DB485DF00473F39 /* NetworkServiceProtocol.swift in Sources */,
 				78220FDC2DB47B0D00473F39 /* SolidBackground.swift in Sources */,
+				782210272DB4912700473F39 /* AttendanceRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

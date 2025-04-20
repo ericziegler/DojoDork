@@ -23,7 +23,21 @@ struct DependencyContainer {
     
     // MARK: Repository Resolves
 
-    // TODO: EZ
+    static func resolveAttendanceRepository() -> AttendanceRepositoryProtocol {
+        return self.shared.resolve(AttendanceRepositoryProtocol.self)!
+    }
+    
+    static func resolveProgramRepository() -> ProgramRepositoryProtocol {
+        return self.shared.resolve(ProgramRepositoryProtocol.self)!
+    }
+    
+    static func resolveStudentRepository() -> StudentRepositoryProtocol {
+        return self.shared.resolve(StudentRepositoryProtocol.self)!
+    }
+    
+    static func resolveUserRepository() -> UserRepositoryProtocol {
+        return self.shared.resolve(UserRepositoryProtocol.self)!
+    }
 
     // MARK: Services Resolves
     
@@ -42,7 +56,29 @@ extension DependencyContainer {
         
         // MARK: - Repositories
         
-        // TODO: EZ
+        container.register(AttendanceRepositoryProtocol.self) { r in
+            let cacheService = r.resolve(CacheServiceProtocol.self)!
+            let networkService = r.resolve(NetworkServiceProtocol.self)!
+            return AttendanceRepository(networkService: networkService)
+        }.inObjectScope(.container)
+        
+        container.register(ProgramRepositoryProtocol.self) { r in
+            let cacheService = r.resolve(CacheServiceProtocol.self)!
+            let networkService = r.resolve(NetworkServiceProtocol.self)!
+            return ProgramRepository(networkService: networkService)
+        }.inObjectScope(.container)
+        
+        container.register(StudentRepositoryProtocol.self) { r in
+            let cacheService = r.resolve(CacheServiceProtocol.self)!
+            let networkService = r.resolve(NetworkServiceProtocol.self)!
+            return StudentRepository(networkService: networkService)
+        }.inObjectScope(.container)
+        
+        container.register(UserRepositoryProtocol.self) { r in
+            let cacheService = r.resolve(CacheServiceProtocol.self)!
+            let networkService = r.resolve(NetworkServiceProtocol.self)!
+            return UserRepository(networkService: networkService)
+        }.inObjectScope(.container)
         
         // MARK: - Services
         
