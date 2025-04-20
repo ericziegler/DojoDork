@@ -6,11 +6,25 @@ import SwiftUI
 
 // MARK: - Modifiers
 
+private struct AppNavStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.appNav)
+            .textCase(.uppercase)
+    }
+}
+
 private struct AppTitleStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(.appTitle)
-            .textCase(.uppercase)
+    }
+}
+
+private struct AppHeaderStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.appHeader)
     }
 }
 
@@ -55,8 +69,16 @@ private struct AppButtonStyle: ViewModifier {
 // MARK: - View Extensions
 
 extension View {
+    func appNavStyle() -> some View {
+        modifier(AppNavStyle())
+    }
+    
     func appTitleStyle() -> some View {
         modifier(AppTitleStyle())
+    }
+    
+    func appHeaderStyle() -> some View {
+        modifier(AppHeaderStyle())
     }
 
     func appSubtitleStyle() -> some View {

@@ -17,9 +17,17 @@ extension Font {
 // MARK: - App Fonts
 
 extension Font {
- 
+    
     static var appTitle: Font {
         .bernhardGothic(size: 28)
+    }
+    
+    static var appNav: Font {
+        .system(size: 24, weight: .semibold)
+    }
+    
+    static var appHeader: Font {
+        .system(size: 28, weight: .medium)
     }
     
     static var appSubtitle: Font {

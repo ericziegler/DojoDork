@@ -6,6 +6,7 @@ import SwiftUI
 
 struct LinkButton: View {
     let title: String
+    var color: Color = .brand
     let action: () -> Void
     
     @State private var hapticFeedback = false
@@ -18,7 +19,7 @@ struct LinkButton: View {
             Text(title)
                 .appBodyStyle()
                 .underline()
-            .foregroundColor(.brand)
+            .foregroundColor(color)
             .padding(.horizontal, 20)
             .padding(.vertical, 12)
             .background(Color.clear)

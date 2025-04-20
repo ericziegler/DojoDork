@@ -6,7 +6,7 @@ import SwiftUI
 
 struct ActionButton: View {
     let title: String
-    let systemImage: String?
+    var systemImage: String?
     let action: () -> Void
     
     @State private var hapticFeedback = false
@@ -25,13 +25,14 @@ struct ActionButton: View {
                 Text(title)
                     .appButtonStyle()
             }
+            .frame(maxWidth: .infinity)
             .foregroundColor(.brand)
             .padding(.horizontal, 20)
-            .padding(.vertical, 12)
+            .padding(.vertical, 16)
             .background(Color.clear)
             .overlay(
                 RoundedRectangle(cornerRadius: 100)
-                    .stroke(.brand, lineWidth: 2)
+                    .stroke(.brand, lineWidth: 3)
             )
         }
         .sensoryFeedback(.impact, trigger: hapticFeedback)

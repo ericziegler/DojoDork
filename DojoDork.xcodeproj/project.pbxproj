@@ -63,6 +63,8 @@
 		782210662DB5761B00473F39 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210652DB5761700473F39 /* ActionButton.swift */; };
 		782210682DB5784A00473F39 /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210672DB5784A00473F39 /* LinkButton.swift */; };
 		7822106B2DB5869800473F39 /* SwiftfulLoadingIndicators in Frameworks */ = {isa = PBXBuildFile; productRef = 7822106A2DB5869800473F39 /* SwiftfulLoadingIndicators */; };
+		7822106D2DB5928800473F39 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822106C2DB5928600473F39 /* NavigationBarModifier.swift */; };
+		7822106F2DB5936900473F39 /* Image+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822106E2DB5936600473F39 /* Image+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +124,8 @@
 		782210622DB5731F00473F39 /* AppField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppField.swift; sourceTree = "<group>"; };
 		782210652DB5761700473F39 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		782210672DB5784A00473F39 /* LinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkButton.swift; sourceTree = "<group>"; };
+		7822106C2DB5928600473F39 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
+		7822106E2DB5936600473F39 /* Image+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +252,7 @@
 			children = (
 				78220FF02DB47CC100473F39 /* DateFormatter+Extensions.swift */,
 				78220FD82DB47A2200473F39 /* Font+Extensions.swift */,
+				7822106E2DB5936600473F39 /* Image+Extensions.swift */,
 				782210112DB48BCC00473F39 /* Notification+Extensions.swift */,
 			);
 			path = Extensions;
@@ -411,6 +416,7 @@
 		782210282DB49E5A00473F39 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
+				7822106C2DB5928600473F39 /* NavigationBarModifier.swift */,
 				782210292DB49E6400473F39 /* TextStyles.swift */,
 			);
 			path = Modifiers;
@@ -633,7 +639,9 @@
 				7822105E2DB5723F00473F39 /* Separator.swift in Sources */,
 				782210222DB490CF00473F39 /* StudentRepository.swift in Sources */,
 				782210432DB5709D00473F39 /* AttendanceView.swift in Sources */,
+				7822106D2DB5928800473F39 /* NavigationBarModifier.swift in Sources */,
 				7822102A2DB49E6600473F39 /* TextStyles.swift in Sources */,
+				7822106F2DB5936900473F39 /* Image+Extensions.swift in Sources */,
 				782210482DB5710900473F39 /* DatePickerView.swift in Sources */,
 				78220FE32DB47BA900473F39 /* User.swift in Sources */,
 				782210332DB56F9F00473F39 /* CodeEntryView.swift in Sources */,
