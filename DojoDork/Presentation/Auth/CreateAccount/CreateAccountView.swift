@@ -37,7 +37,7 @@ struct CreateAccountView: View {
                 }
             }
             .navigationDestination(isPresented: $viewModel.navigateToCodeEntry) {
-                CodeEntryView()
+                CodeEntryView(email: viewModel.email)
             }
         }
     }

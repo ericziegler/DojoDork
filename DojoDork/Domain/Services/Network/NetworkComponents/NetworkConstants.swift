@@ -5,7 +5,6 @@
 import Foundation
 
 typealias Parameters = [String: Any]
-typealias Credentials = [String: String]
 
 let APIURL = "https://dojodork.dojovista.com/api/v1"
 

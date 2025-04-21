@@ -10,15 +10,15 @@ final class AppState {
     
     var isAuthenticated: Bool = false
     
-    private let networkService: NetworkServiceProtocol
+    private let userRepository: UserRepositoryProtocol
     
-    init(networkService: NetworkServiceProtocol = DependencyContainer.resolveNetworkService()) {
-        self.networkService = networkService
+    init(userRepository: UserRepositoryProtocol = DependencyContainer.resolveUserRepository()) {
+        self.userRepository = userRepository
         checkCredentials()
     }
     
     private func checkCredentials() {
-        isAuthenticated = networkService.credentials != nil
+        isAuthenticated = userRepository.token != nil
     }
     
 }

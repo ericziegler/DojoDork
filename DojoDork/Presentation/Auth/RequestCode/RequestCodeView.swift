@@ -35,7 +35,7 @@ struct RequestCodeView: View {
                 }
             }
             .navigationDestination(isPresented: $viewModel.navigateToCodeEntry) {
-                CodeEntryView()
+                CodeEntryView(email: viewModel.email)
             }
         }
     }

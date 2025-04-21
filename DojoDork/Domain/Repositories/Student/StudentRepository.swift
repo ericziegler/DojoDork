@@ -7,9 +7,19 @@ import Foundation
 final class StudentRepository: StudentRepositoryProtocol {
     
     private let networkService: NetworkServiceProtocol
+    private let cacheService: CacheServiceProtocol
+    
+    var tokenParam: [String: String]? {
+        guard let token = cacheService.loadString(for: tokenCacheKey) else { return nil }
+        return ["token": token]
+    }
 
-    init(networkService: NetworkServiceProtocol = DependencyContainer.resolveNetworkService()) {
+    init(
+        networkService: NetworkServiceProtocol = DependencyContainer.resolveNetworkService(),
+        cacheService: CacheServiceProtocol = DependencyContainer.resolveCacheService()
+    ) {
         self.networkService = networkService
+        self.cacheService = cacheService
     }
     
     func createStudent(name: String, promotionDate: String?) async throws -> Student {
@@ -20,7 +30,8 @@ final class StudentRepository: StudentRepositoryProtocol {
         
         let data = try await networkService.request(
             endpoint: "student/create.php",
-            parameters: params
+            parameters: params,
+            credentials: tokenParam
         )
         return try JSONParser.parse(json: data)
     }
@@ -36,13 +47,15 @@ final class StudentRepository: StudentRepositoryProtocol {
         
         _ = try await networkService.request(
             endpoint: "student/update.php",
-            parameters: params
+            parameters: params,
+            credentials: tokenParam
         )
     }
     
     func listStudents() async throws -> Students {
         let data = try await networkService.request(
-            endpoint: "student/list.php"
+            endpoint: "student/list.php",
+            credentials: tokenParam
         )
         return try JSONParser.parse(json: data, key: "students")
     }
@@ -50,7 +63,8 @@ final class StudentRepository: StudentRepositoryProtocol {
     func deleteStudent(id: String) async throws {
         _ = try await networkService.request(
             endpoint: "student/delete.php",
-            parameters: ["student_id": id]
+            parameters: ["student_id": id],
+            credentials: tokenParam
         )
     }
 }

@@ -9,7 +9,7 @@ class CacheService: CacheServiceProtocol {
     private let userDefaults = UserDefaults()
     
     func loadData(for key: String) -> Data? {
-        return userDefaults.data(forKey: key)
+        userDefaults.data(forKey: key)
     }
     
     func save(data: Data, for key: String) {
@@ -17,6 +17,18 @@ class CacheService: CacheServiceProtocol {
     }
     
     func removeData(for key: String) {
+        userDefaults.removeObject(forKey: key)
+    }
+    
+    func loadString(for key: String) -> String? {
+        userDefaults.string(forKey: key)
+    }
+    
+    func saveString(_ string: String, for key: String) {
+        userDefaults.set(string, forKey: key)
+    }
+    
+    func removeString(for key: String) {
         userDefaults.removeObject(forKey: key)
     }
 }
