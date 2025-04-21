@@ -5,6 +5,8 @@
 import SwiftUI
 
 struct RequestCodeView: View {
+    @EnvironmentObject private var appState: AppState
+    
     @State private var viewModel = RequestCodeViewModel()
 
     var body: some View {
@@ -29,13 +31,14 @@ struct RequestCodeView: View {
             .alert(viewModel.alertMessage, isPresented: $viewModel.showAlert) {
                 Button("OK", role: .cancel) { }
             }
-            .background {
+            .overlay {
                 if viewModel.isLoading {
                     LoadingView()
                 }
             }
             .navigationDestination(isPresented: $viewModel.navigateToCodeEntry) {
                 CodeEntryView(email: viewModel.email)
+                    .environmentObject(appState)
             }
         }
     }
@@ -68,11 +71,15 @@ struct RequestCodeView: View {
     }
     
     @ViewBuilder private func renderButtons() -> some View {
+        let isDisabled = viewModel.email.trimmingCharacters(in: .whitespaces).isEmpty
+        
         ActionButton(title: "Send Code") {
             Task {
                 await viewModel.submitEmail()
             }
         }
+        .opacity(isDisabled ? 0.5 : 1.0)
+        .disabled(isDisabled)
         .padding(.bottom, 48)
         
         NavigationLink(destination: CreateAccountView(), label: {

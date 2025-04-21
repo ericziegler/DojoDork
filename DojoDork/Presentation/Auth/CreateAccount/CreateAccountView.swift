@@ -31,7 +31,7 @@ struct CreateAccountView: View {
             .alert(viewModel.alertMessage, isPresented: $viewModel.showAlert) {
                 Button("OK", role: .cancel) { }
             }
-            .background {
+            .overlay {
                 if viewModel.isLoading {
                     LoadingView()
                 }
@@ -77,11 +77,15 @@ struct CreateAccountView: View {
     }
 
     @ViewBuilder private func renderButtons() -> some View {
+        let isDisabled = viewModel.name.trimmingCharacters(in: .whitespaces).isEmpty ||
+                         viewModel.email.trimmingCharacters(in: .whitespaces).isEmpty
         ActionButton(title: "Create Account") {
             Task {
                 await viewModel.submit()
             }
         }
+        .opacity(isDisabled ? 0.5 : 1.0)
+        .disabled(isDisabled)
         .padding(.bottom, 48)
         
         LinkButton(title: "Already have an account?") {

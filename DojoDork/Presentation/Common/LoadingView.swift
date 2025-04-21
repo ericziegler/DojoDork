@@ -19,7 +19,7 @@ struct LoadingView: View {
     
     @ViewBuilder private func renderBackground() -> some View {
         Rectangle()
-            .fill(.black.opacity(0.8))
+            .fill(.black.opacity(0.64))
             .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     

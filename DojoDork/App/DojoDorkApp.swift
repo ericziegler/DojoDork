@@ -7,7 +7,7 @@ import SwiftUI
 @main
 struct DojoDorkApp: App {
     
-    @State private var appState = AppState()
+    @StateObject private var appState = AppState()
     
     var body: some Scene {
         WindowGroup {
@@ -15,6 +15,7 @@ struct DojoDorkApp: App {
                 MainTabView()
             } else {
                 RequestCodeView()
+                    .environmentObject(appState)
             }
         }
     }

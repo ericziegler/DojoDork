@@ -26,19 +26,26 @@ final class RequestCodeViewModel {
 
     func submitEmail() async {
         guard !email.trimmingCharacters(in: .whitespaces).isEmpty else {
-            alertMessage = "Please enter your email address."
-            showAlert = true
+            showAlert(message: "Please enter your email address.")
             return
         }
 
         isLoading = true
         do {
-            try await userRepository.requestLoginCode(email: email)
-            navigateToCodeEntry = true
+            let success = try await userRepository.requestLoginCode(email: email)
+            if success {
+                navigateToCodeEntry = true
+            } else {
+                showAlert(message: "Unable to send request code. Please make sure you have an account.")
+            }
         } catch {
-            alertMessage = error.localizedDescription
-            showAlert = true
+            showAlert(message: error.localizedDescription)
         }
         isLoading = false
+    }
+    
+    private func showAlert(message: String) {
+        alertMessage = message
+        showAlert = true
     }
 }

@@ -22,22 +22,26 @@ final class UserRepository: UserRepositoryProtocol {
         loadToken()
     }
     
-    func createUser(email: String, name: String) async throws -> User {
+    func createUser(email: String, name: String) async throws -> Bool {
         let data = try await networkService.request(
             endpoint: "user/create.php",
             parameters: ["email": email, "name": name]
         )
-        return try JSONParser.parse(json: data, key: "user")
+        
+        // Parse status or throw
+        let status: ResponseStatus = try JSONParser.parse(json: data)
+        return status.isSuccessful
     }
     
-    func requestLoginCode(email: String) async throws {
+    func requestLoginCode(email: String) async throws -> Bool {
         let data = try await networkService.request(
-            endpoint: "user/send_verification.php",
+            endpoint: "user/request_code.php",
             parameters: ["email": email]
         )
         
         // Parse status or throw
-        let _: ResponseStatus = try JSONParser.parse(json: data)
+        let status: ResponseStatus = try JSONParser.parse(json: data)
+        return status.isSuccessful
     }
     
     func validateLoginCode(email: String, code: String) async throws {

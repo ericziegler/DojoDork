@@ -24,25 +24,44 @@ final class CreateAccountViewModel {
 
     func submit() async {
         guard !name.trimmingCharacters(in: .whitespaces).isEmpty else {
-            alertMessage = "Please enter your name."
-            showAlert = true
+            showAlert(message: "Please enter your name.")
             return
         }
 
         guard !email.trimmingCharacters(in: .whitespaces).isEmpty else {
-            alertMessage = "Please enter your email."
-            showAlert = true
+            showAlert(message: "Please enter your email.")
             return
         }
 
         isLoading = true
         do {
-            _ = try await userRepository.createUser(email: email, name: name)
-            navigateToCodeEntry = true
+            let success = try await userRepository.createUser(email: email, name: name)
+            if success {
+                await requestLoginCode()
+            } else {
+                showAlert(message: "We were unable to create a user with this email address.")
+            }
         } catch {
-            alertMessage = error.localizedDescription
-            showAlert = true
+            showAlert(message: error.localizedDescription)
         }
         isLoading = false
+    }
+    
+    private func requestLoginCode() async {
+        do {
+            let success = try await userRepository.requestLoginCode(email: email)
+            if success {
+                navigateToCodeEntry = true
+            } else {
+                showAlert(message: "We were unable to create a user with this email address.")
+            }
+        } catch {
+            showAlert(message: error.localizedDescription)
+        }
+    }
+    
+    private func showAlert(message: String) {
+        alertMessage = message
+        showAlert = true
     }
 }

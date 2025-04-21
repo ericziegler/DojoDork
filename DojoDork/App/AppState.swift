@@ -4,11 +4,10 @@
 
 import SwiftUI
 
-@Observable
 @MainActor
-final class AppState {
+final class AppState: ObservableObject {
     
-    var isAuthenticated: Bool = false
+    @Published var isAuthenticated: Bool = false
     
     private let userRepository: UserRepositoryProtocol
     
@@ -17,7 +16,7 @@ final class AppState {
         checkCredentials()
     }
     
-    private func checkCredentials() {
+    func checkCredentials() {
         isAuthenticated = userRepository.token != nil
     }
     

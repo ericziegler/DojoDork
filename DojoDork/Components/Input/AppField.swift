@@ -88,11 +88,11 @@ struct AppField: View {
                 }, label: {
                     ZStack {
                         Circle()
-                            .fill(textColor.opacity(colorScheme == .dark ? 0.25 : 0.1))
-                            .frame(width: 32, height: 32)
+                            .fill(textColor.opacity(0.1))
+                            .frame(width: 26, height: 26)
                         Image(systemName: "xmark")
-                            .frame(width: 10, height: 10)
-                            .foregroundStyle(textColor.opacity(colorScheme == .dark ? 0.75 : 0.65))
+                            .frame(width: 8, height: 8)
+                            .foregroundStyle(textColor.opacity(0.5))
                     }
                 })
             }

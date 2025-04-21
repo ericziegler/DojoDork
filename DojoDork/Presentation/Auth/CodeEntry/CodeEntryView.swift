@@ -5,6 +5,7 @@
 import SwiftUI
 
 struct CodeEntryView: View {
+    @EnvironmentObject private var appState: AppState
     @Environment(\.dismiss) private var dismiss
     
     let email: String
@@ -38,7 +39,7 @@ struct CodeEntryView: View {
             .alert(viewModel.alertMessage, isPresented: $viewModel.showAlert) {
                 Button("OK", role: .cancel) { }
             }
-            .background {
+            .overlay {
                 if viewModel.isLoading {
                     LoadingView()
                 }
@@ -74,11 +75,17 @@ struct CodeEntryView: View {
     }
 
     @ViewBuilder private func renderButtons() -> some View {
+        let isDisabled = viewModel.code.trimmingCharacters(in: .whitespaces).isEmpty
+        
         ActionButton(title: "Verify") {
             Task {
-                await viewModel.submitCode()
+                if await viewModel.submitCode() {
+                    appState.checkCredentials()
+                }
             }
         }
+        .opacity(isDisabled ? 0.5 : 1.0)
+        .disabled(isDisabled)
         .padding(.bottom, 48)
 
         LinkButton(title: "Go Back") {

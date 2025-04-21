@@ -26,20 +26,23 @@ final class CodeEntryViewModel {
         self.userRepository = userRepository
     }
 
-    func submitCode() async {
+    func submitCode() async -> Bool {
         guard code.count == 6 else {
             alertMessage = "Please enter your 6-digit code."
             showAlert = true
-            return
+            return false
         }
 
         isLoading = true
         do {
             try await userRepository.validateLoginCode(email: email, code: code)
+            isLoading = false
+            return true
         } catch {
             alertMessage = error.localizedDescription
             showAlert = true
+            isLoading = false
+            return false
         }
-        isLoading = false
     }
 }
