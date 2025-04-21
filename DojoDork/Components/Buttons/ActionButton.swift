@@ -32,7 +32,7 @@ struct ActionButton: View {
             .background(Color.clear)
             .overlay(
                 RoundedRectangle(cornerRadius: 100)
-                    .stroke(.brand, lineWidth: 3)
+                    .stroke(.brand, lineWidth: 4)
             )
         }
         .sensoryFeedback(.impact, trigger: hapticFeedback)

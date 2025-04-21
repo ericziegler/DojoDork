@@ -18,7 +18,7 @@ final class UserRepository: UserRepositoryProtocol {
             parameters: ["email": email, "name": name],
             includeCredentials: false
         )
-        return try JSONParser.parse(json: data)
+        return try JSONParser.parse(json: data, key: "user")
     }
     
     func requestLoginCode(email: String) async throws {

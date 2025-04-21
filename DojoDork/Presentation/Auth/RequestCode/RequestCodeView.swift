@@ -25,7 +25,7 @@ struct RequestCodeView: View {
 
                 Spacer()
             }
-            .padding(24)
+            .padding(32)
             .alert(viewModel.alertMessage, isPresented: $viewModel.showAlert) {
                 Button("OK", role: .cancel) { }
             }
