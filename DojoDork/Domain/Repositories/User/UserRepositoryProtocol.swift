@@ -10,4 +10,5 @@ protocol UserRepositoryProtocol {
     func requestLoginCode(email: String) async throws -> Bool
     func validateLoginCode(email: String, code: String) async throws
     func fetchUserInfo() async throws -> User
+    func logout()
 }

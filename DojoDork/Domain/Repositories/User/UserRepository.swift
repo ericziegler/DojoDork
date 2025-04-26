@@ -63,6 +63,10 @@ final class UserRepository: UserRepositoryProtocol {
         return try JSONParser.parse(json: data)
     }
     
+    func logout() {
+        clearToken()
+    }
+    
     // MARK: - Token
     
     func loadToken() {

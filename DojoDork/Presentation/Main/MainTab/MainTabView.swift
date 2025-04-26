@@ -5,6 +5,7 @@
 import SwiftUI
 
 struct MainTabView: View {
+    @EnvironmentObject private var appState: AppState
     
     @State private var selectedTab = 0
     @State private var isShowingProfile = false
@@ -46,7 +47,10 @@ struct MainTabView: View {
     }
     
     @ViewBuilder private func renderProfileView() -> some View {
-        ProfileView()
+        ProfileView {
+            isShowingProfile = false
+            appState.checkCredentials()
+        }
     }
     
     private func showProfile() {

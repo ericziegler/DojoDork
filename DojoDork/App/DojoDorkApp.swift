@@ -13,6 +13,7 @@ struct DojoDorkApp: App {
         WindowGroup {
             if appState.isAuthenticated {
                 MainTabView()
+                    .environmentObject(appState)
             } else {
                 RequestCodeView()
                     .environmentObject(appState)

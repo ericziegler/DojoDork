@@ -23,7 +23,7 @@ final class ProfileViewModel {
     // MARK: - User
     
     func logout() {
-        // TODO: EZ - Logout
+        userRepo.logout()
     }
     
 }

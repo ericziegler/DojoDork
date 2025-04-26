@@ -10,6 +10,8 @@ struct ProfileView: View {
     @State private var viewModel = ProfileViewModel()
     @State private var showLogoutConfirmation = false
     
+    var onLogout: (() -> Void)?
+    
     var body: some View {
         NavigationStack {
             SolidBackground {
@@ -31,6 +33,7 @@ struct ProfileView: View {
             .alert("Are you sure you want to log out?", isPresented: $showLogoutConfirmation) {
                 Button("Logout", role: .destructive) {
                     viewModel.logout()
+                    onLogout?()
                 }
                 Button("Cancel", role: .cancel) {}
             }
