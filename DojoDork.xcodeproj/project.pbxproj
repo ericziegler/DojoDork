@@ -48,7 +48,6 @@
 		782210382DB56FFA00473F39 /* CreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210372DB56FF700473F39 /* CreateAccountViewModel.swift */; };
 		7822103A2DB5700000473F39 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210392DB56FFD00473F39 /* CreateAccountView.swift */; };
 		7822103E2DB5705C00473F39 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822103D2DB5705A00473F39 /* MainTabView.swift */; };
-		782210402DB5706100473F39 /* MainTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822103F2DB5705E00473F39 /* MainTabViewModel.swift */; };
 		782210432DB5709D00473F39 /* AttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210422DB5709B00473F39 /* AttendanceView.swift */; };
 		782210452DB570AA00473F39 /* AttendanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210442DB570A700473F39 /* AttendanceViewModel.swift */; };
 		782210482DB5710900473F39 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782210472DB5710600473F39 /* DatePickerView.swift */; };
@@ -66,6 +65,7 @@
 		7822106D2DB5928800473F39 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822106C2DB5928600473F39 /* NavigationBarModifier.swift */; };
 		7822106F2DB5936900473F39 /* Image+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822106E2DB5936600473F39 /* Image+Extensions.swift */; };
 		78767C9B2DB5A1850075BA38 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78767C9A2DB5A1820075BA38 /* AppState.swift */; };
+		78767C9D2DBC7D540075BA38 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78767C9C2DBC7D4B0075BA38 /* Tab.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,7 +111,6 @@
 		782210372DB56FF700473F39 /* CreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewModel.swift; sourceTree = "<group>"; };
 		782210392DB56FFD00473F39 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		7822103D2DB5705A00473F39 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
-		7822103F2DB5705E00473F39 /* MainTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewModel.swift; sourceTree = "<group>"; };
 		782210422DB5709B00473F39 /* AttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceView.swift; sourceTree = "<group>"; };
 		782210442DB570A700473F39 /* AttendanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceViewModel.swift; sourceTree = "<group>"; };
 		782210472DB5710600473F39 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
@@ -128,6 +127,7 @@
 		7822106C2DB5928600473F39 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		7822106E2DB5936600473F39 /* Image+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extensions.swift"; sourceTree = "<group>"; };
 		78767C9A2DB5A1820075BA38 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		78767C9C2DBC7D4B0075BA38 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -476,8 +476,8 @@
 		7822103C2DB5705500473F39 /* MainTab */ = {
 			isa = PBXGroup;
 			children = (
+				78767C9C2DBC7D4B0075BA38 /* Tab.swift */,
 				7822103D2DB5705A00473F39 /* MainTabView.swift */,
-				7822103F2DB5705E00473F39 /* MainTabViewModel.swift */,
 			);
 			path = MainTab;
 			sourceTree = "<group>";
@@ -657,7 +657,6 @@
 				782210352DB56FA700473F39 /* CodeEntryViewModel.swift in Sources */,
 				7822102D2DB56F4100473F39 /* RequestCodeView.swift in Sources */,
 				782210122DB48BD000473F39 /* Notification+Extensions.swift in Sources */,
-				782210402DB5706100473F39 /* MainTabViewModel.swift in Sources */,
 				782210632DB5732200473F39 /* AppField.swift in Sources */,
 				782210532DB5718E00473F39 /* ProfileVIewModel.swift in Sources */,
 				78220FE62DB47BBE00473F39 /* Students.swift in Sources */,
@@ -665,6 +664,7 @@
 				78220FFD2DB4860300473F39 /* NetworkService.swift in Sources */,
 				78220FEC2DB47C9100473F39 /* AttendanceLog.swift in Sources */,
 				78220FCA2DB478BE00473F39 /* DojoDorkApp.swift in Sources */,
+				78767C9D2DBC7D540075BA38 /* Tab.swift in Sources */,
 				7822100C2DB486EA00473F39 /* ResponseStatus.swift in Sources */,
 				78220FEF2DB47CB300473F39 /* StudentSummary.swift in Sources */,
 				7822104E2DB5714000473F39 /* RoterViewModel.swift in Sources */,
