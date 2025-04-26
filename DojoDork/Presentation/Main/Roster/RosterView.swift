@@ -7,12 +7,30 @@ import SwiftUI
 struct RosterView: View {
     
     @State private var viewModel = RosterViewModel()
+    @Binding var showProfile: Bool
     
     var body: some View {
-        Text("Roster")
+        NavigationStack {
+            SolidBackground {
+                Text("Roster")
+            }
+            .navigationBar(title: "Roster", leadingItem: {
+                renderNavButton()
+            })
+        }
+    }
+    
+    @ViewBuilder private func renderNavButton() -> some View {
+        Button {
+            showProfile.toggle()
+        } label: {
+            Image(systemName: "gearshape.fill")
+                .fontWeight(.semibold)
+        }
+        .tint(.brand)
     }
 }
 
 #Preview {
-    RosterView()
+    RosterView(showProfile: .constant(false))
 }

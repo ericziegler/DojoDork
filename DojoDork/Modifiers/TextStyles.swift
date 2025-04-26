@@ -66,6 +66,13 @@ private struct AppButtonStyle: ViewModifier {
     }
 }
 
+private struct AppLinkStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.appLink)
+    }
+}
+
 // MARK: - View Extensions
 
 extension View {
@@ -99,5 +106,9 @@ extension View {
 
     func appButtonStyle() -> some View {
         modifier(AppButtonStyle())
+    }
+    
+    func appLinkStyle() -> some View {
+        modifier(AppLinkStyle())
     }
 }

@@ -7,18 +7,32 @@ import SwiftUI
 struct MainTabView: View {
     
     @State private var selectedTab = 0
+    @State private var isShowingProfile = false
+    @State private var settingsDetent = PresentationDetent.height(375)
     
     var body: some View {
         TabView(selection: $selectedTab) {
             Group {
-                renderTab(view: AttendanceView(), tab: .attendance)
-                renderTab(view: RosterView(), tab: .roster)
-                renderTab(view: ProfileView(), tab: .profile)
+                renderTab(
+                    view: AttendanceView(showProfile: $isShowingProfile),
+                    tab: .attendance
+                )
+                renderTab(
+                    view: RosterView(showProfile: $isShowingProfile),
+                    tab: .roster
+                )
             }
             .toolbarBackground(Color.appBar, for: .tabBar)
             .toolbarBackground(.visible, for: .tabBar)
         }
         .tint(.brand)
+        .sheet(isPresented: $isShowingProfile, content: {
+            renderProfileView()
+                .presentationDetents(
+                    [.height(375)],
+                    selection: $settingsDetent
+                 )
+        })
     }
     
     @ViewBuilder private func renderTab(view: some View, tab: Tab) -> some View {
@@ -29,6 +43,14 @@ struct MainTabView: View {
                 Text(tab.text)
                     .appNavStyle()
             }
+    }
+    
+    @ViewBuilder private func renderProfileView() -> some View {
+        ProfileView()
+    }
+    
+    private func showProfile() {
+        isShowingProfile.toggle()
     }
 }
 

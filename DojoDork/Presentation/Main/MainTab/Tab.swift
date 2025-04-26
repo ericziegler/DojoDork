@@ -7,7 +7,6 @@ import Foundation
 enum Tab: Int, Hashable {
     case attendance
     case roster
-    case profile
     
     var text: String {
         switch self {
@@ -15,19 +14,15 @@ enum Tab: Int, Hashable {
             return "Attendance"
         case .roster:
             return "Roster"
-        case .profile:
-            return "Profile"
         }
     }
     
     var imageName: String {
         switch self {
         case .attendance:
-            return "checkmark.circle.fill"
+            return "person.fill.checkmark"
         case .roster:
             return "list.clipboard.fill"
-        case .profile:
-            return "person.fill"
         }
     }
 }

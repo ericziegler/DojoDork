@@ -7,12 +7,30 @@ import SwiftUI
 struct AttendanceView: View {
     
     @State private var viewModel = AttendanceViewModel()
+    @Binding var showProfile: Bool
     
     var body: some View {
-        Text("Attendance")
+        NavigationStack {
+            SolidBackground {
+                Text("Attendance")
+            }
+            .navigationBar(title: "Attendance", leadingItem: {
+                renderNavButton()
+            })
+        }
+    }
+    
+    @ViewBuilder private func renderNavButton() -> some View {
+        Button {
+            showProfile.toggle()
+        } label: {
+            Image(systemName: "gearshape.fill")
+                .fontWeight(.semibold)
+        }
+        .tint(.brand)
     }
 }
 
 #Preview {
-    AttendanceView()
+    AttendanceView(showProfile: .constant(false))
 }

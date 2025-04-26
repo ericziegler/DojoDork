@@ -8,4 +8,22 @@ import SwiftUI
 @MainActor
 final class ProfileViewModel {
     
+    // MARK: - Properties
+    
+    private let userRepo: UserRepositoryProtocol
+    
+    var username: String = "TEST USER"
+    
+    // MARK: - Init
+    
+    init(userRepo: UserRepositoryProtocol = DependencyContainer.resolveUserRepository()) {
+        self.userRepo = userRepo
+    }
+    
+    // MARK: - User
+    
+    func logout() {
+        // TODO: EZ - Logout
+    }
+    
 }

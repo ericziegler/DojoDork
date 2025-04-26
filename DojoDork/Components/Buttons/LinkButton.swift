@@ -17,7 +17,7 @@ struct LinkButton: View {
             hapticFeedback.toggle()
         }) {
             Text(title)
-                .appBodyStyle()
+                .appLinkStyle()
                 .underline()
             .foregroundColor(color)
             .padding(.horizontal, 20)

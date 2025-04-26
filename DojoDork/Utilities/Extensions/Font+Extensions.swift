@@ -50,6 +50,10 @@ extension Font {
         .system(size: 21, weight: .semibold)
     }
     
+    static var appLink: Font {
+        .system(size: 21, weight: .semibold)
+    }
+    
 }
 
 #Preview {
