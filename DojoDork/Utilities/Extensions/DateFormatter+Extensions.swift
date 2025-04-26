@@ -12,4 +12,10 @@ extension DateFormatter {
         return dateFormatter
     }
     
+    static var display: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "M/d/yy"
+        return dateFormatter
+    }
+    
 }

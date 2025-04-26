@@ -52,12 +52,14 @@ final class StudentRepository: StudentRepositoryProtocol {
         )
     }
     
+    // TODO: EZ - Revert
     func listStudents() async throws -> Students {
-        let data = try await networkService.request(
-            endpoint: "student/list.php",
-            credentials: tokenParam
-        )
-        return try JSONParser.parse(json: data, key: "students")
+        Students.mockData
+//        let data = try await networkService.request(
+//            endpoint: "student/list.php",
+//            credentials: tokenParam
+//        )
+//        return try JSONParser.parse(json: data, key: "students")
     }
     
     func deleteStudent(id: String) async throws {

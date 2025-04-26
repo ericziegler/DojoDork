@@ -16,7 +16,7 @@
 		78220FDC2DB47B0D00473F39 /* SolidBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78220FDB2DB47B0B00473F39 /* SolidBackground.swift */; };
 		78220FE12DB47B5C00473F39 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78220FE02DB47B5900473F39 /* DependencyContainer.swift */; };
 		78220FE32DB47BA900473F39 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78220FE22DB47BA700473F39 /* User.swift */; };
-		78220FE62DB47BBE00473F39 /* Students.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78220FE52DB47BBD00473F39 /* Students.swift */; };
+		78220FE62DB47BBE00473F39 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78220FE52DB47BBD00473F39 /* Student.swift */; };
 		78220FE92DB47C6E00473F39 /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78220FE82DB47C6C00473F39 /* Program.swift */; };
 		78220FEC2DB47C9100473F39 /* AttendanceLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78220FEB2DB47C8D00473F39 /* AttendanceLog.swift */; };
 		78220FEF2DB47CB300473F39 /* StudentSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78220FEE2DB47CAA00473F39 /* StudentSummary.swift */; };
@@ -66,6 +66,8 @@
 		7822106F2DB5936900473F39 /* Image+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822106E2DB5936600473F39 /* Image+Extensions.swift */; };
 		78767C9B2DB5A1850075BA38 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78767C9A2DB5A1820075BA38 /* AppState.swift */; };
 		78767C9D2DBC7D540075BA38 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78767C9C2DBC7D4B0075BA38 /* Tab.swift */; };
+		78767CA02DBCFD190075BA38 /* StudentCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78767C9F2DBCFD190075BA38 /* StudentCard.swift */; };
+		78767CA22DBD06E80075BA38 /* RosterSortOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78767CA12DBD06E50075BA38 /* RosterSortOption.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,7 +82,7 @@
 		78220FDB2DB47B0B00473F39 /* SolidBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolidBackground.swift; sourceTree = "<group>"; };
 		78220FE02DB47B5900473F39 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		78220FE22DB47BA700473F39 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		78220FE52DB47BBD00473F39 /* Students.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Students.swift; sourceTree = "<group>"; };
+		78220FE52DB47BBD00473F39 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		78220FE82DB47C6C00473F39 /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
 		78220FEB2DB47C8D00473F39 /* AttendanceLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceLog.swift; sourceTree = "<group>"; };
 		78220FEE2DB47CAA00473F39 /* StudentSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentSummary.swift; sourceTree = "<group>"; };
@@ -128,6 +130,8 @@
 		7822106E2DB5936600473F39 /* Image+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extensions.swift"; sourceTree = "<group>"; };
 		78767C9A2DB5A1820075BA38 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		78767C9C2DBC7D4B0075BA38 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		78767C9F2DBCFD190075BA38 /* StudentCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCard.swift; sourceTree = "<group>"; };
+		78767CA12DBD06E50075BA38 /* RosterSortOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosterSortOption.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,7 +304,7 @@
 		78220FE42DB47BAF00473F39 /* Students */ = {
 			isa = PBXGroup;
 			children = (
-				78220FE52DB47BBD00473F39 /* Students.swift */,
+				78220FE52DB47BBD00473F39 /* Student.swift */,
 			);
 			path = Students;
 			sourceTree = "<group>";
@@ -496,6 +500,7 @@
 			children = (
 				7822104B2DB5713900473F39 /* RosterView.swift */,
 				7822104D2DB5713E00473F39 /* RoterViewModel.swift */,
+				78767CA12DBD06E50075BA38 /* RosterSortOption.swift */,
 			);
 			path = Roster;
 			sourceTree = "<group>";
@@ -523,6 +528,7 @@
 				782210472DB5710600473F39 /* DatePickerView.swift */,
 				782210562DB571DA00473F39 /* EditEntityView.swift */,
 				782210592DB5720D00473F39 /* LoadingView.swift */,
+				78767C9F2DBCFD190075BA38 /* StudentCard.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -636,6 +642,7 @@
 				782210062DB486BB00473F39 /* APIError.swift in Sources */,
 				78220FF62DB4854F00473F39 /* OverviewReport.swift in Sources */,
 				782210572DB571F000473F39 /* EditEntityView.swift in Sources */,
+				78767CA02DBCFD190075BA38 /* StudentCard.swift in Sources */,
 				7822101D2DB48F7B00473F39 /* ProgramRepository.swift in Sources */,
 				782210102DB48BA100473F39 /* JSONParser.swift in Sources */,
 				78220FE12DB47B5C00473F39 /* DependencyContainer.swift in Sources */,
@@ -659,8 +666,9 @@
 				782210122DB48BD000473F39 /* Notification+Extensions.swift in Sources */,
 				782210632DB5732200473F39 /* AppField.swift in Sources */,
 				782210532DB5718E00473F39 /* ProfileVIewModel.swift in Sources */,
-				78220FE62DB47BBE00473F39 /* Students.swift in Sources */,
+				78220FE62DB47BBE00473F39 /* Student.swift in Sources */,
 				782210182DB48E7800473F39 /* UserRepository.swift in Sources */,
+				78767CA22DBD06E80075BA38 /* RosterSortOption.swift in Sources */,
 				78220FFD2DB4860300473F39 /* NetworkService.swift in Sources */,
 				78220FEC2DB47C9100473F39 /* AttendanceLog.swift in Sources */,
 				78220FCA2DB478BE00473F39 /* DojoDorkApp.swift in Sources */,
