@@ -9,41 +9,47 @@ struct RosterView: View {
     @State private var viewModel = RosterViewModel()
     @Binding var showProfile: Bool
     @State private var isShowingSortOptions = false
-    
+
     var body: some View {
         NavigationStack {
-            SolidBackground {
-                if viewModel.isLoading && viewModel.students.isEmpty {
-                    LoadingView()
-                } else if viewModel.students.isEmpty {
-                    renderContentUnavailable()
-                } else {
-                    renderStudentList()
-                }
-            }
-            .navigationBar(title: "Roster", leadingItem: {
-                renderProfileButton()
-            }, trailingItem: {
-                renderSortButton()
-            })
-            .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always))
-            .alert(viewModel.alertMessage, isPresented: $viewModel.showAlert) {
-                Button("OK", role: .cancel) {}
-            }
-            .confirmationDialog("Sort By", isPresented: $isShowingSortOptions, titleVisibility: .visible) {
-                ForEach(RosterSortOption.allCases) { option in
-                    Button(option.rawValue) {
-                        viewModel.sortOption = option
-                        viewModel.sortStudents()
+            ZStack {
+                SolidBackground {
+                    if viewModel.isLoading && viewModel.students.isEmpty {
+                        LoadingView()
+                    } else if viewModel.students.isEmpty {
+                        renderContentUnavailable()
+                    } else {
+                        renderStudentList()
                     }
                 }
-            }
-            .task {
-                await viewModel.loadStudents()
+                .navigationBar(title: "Roster", leadingItem: {
+                    renderProfileButton()
+                }, trailingItem: {
+                    renderSortButton()
+                })
+                .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always))
+                .alert(viewModel.alertMessage, isPresented: $viewModel.showAlert) {
+                    Button("OK", role: .cancel) {}
+                }
+                .confirmationDialog("Sort By", isPresented: $isShowingSortOptions, titleVisibility: .visible) {
+                    ForEach(RosterSortOption.allCases) { option in
+                        Button(option.rawValue) {
+                            viewModel.sortOption = option
+                            viewModel.sortStudents()
+                        }
+                    }
+                }
+                .task {
+                    await viewModel.loadStudents()
+                }
+                
+                renderAddButton()
             }
         }
     }
     
+    // MARK: - Buttons
+
     @ViewBuilder private func renderProfileButton() -> some View {
         Button {
             showProfile.toggle()
@@ -63,15 +69,19 @@ struct RosterView: View {
         }
         .tint(.brand)
     }
-    
+
+    // MARK: - List Content
+
     @ViewBuilder private func renderStudentList() -> some View {
         ScrollView {
             LazyVStack(spacing: 16) {
                 ForEach(viewModel.filteredStudents, id: \.studentId) { studentSummary in
                     StudentCard(student: studentSummary)
                 }
+                .padding(.horizontal)
             }
-            .padding()
+            .padding(.top)
+            .padding(.bottom, 100)
         }
         .refreshable {
             await viewModel.loadStudents()
@@ -93,6 +103,19 @@ struct RosterView: View {
                 Task {
                     await viewModel.loadStudents()
                 }
+            }
+        }
+    }
+    
+    private func renderAddButton() -> some View {
+        VStack {
+            Spacer()
+            HStack {
+                Spacer()
+                FloatingButton(systemImage: "plus") {
+                    print("Tapped")
+                }
+                .padding()
             }
         }
     }

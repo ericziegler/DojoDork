@@ -68,6 +68,7 @@
 		78767C9D2DBC7D540075BA38 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78767C9C2DBC7D4B0075BA38 /* Tab.swift */; };
 		78767CA02DBCFD190075BA38 /* StudentCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78767C9F2DBCFD190075BA38 /* StudentCard.swift */; };
 		78767CA22DBD06E80075BA38 /* RosterSortOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78767CA12DBD06E50075BA38 /* RosterSortOption.swift */; };
+		788AC48C2DBD829A00B900A6 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AC48B2DBD829500B900A6 /* FloatingButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +133,7 @@
 		78767C9C2DBC7D4B0075BA38 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		78767C9F2DBCFD190075BA38 /* StudentCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCard.swift; sourceTree = "<group>"; };
 		78767CA12DBD06E50075BA38 /* RosterSortOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosterSortOption.swift; sourceTree = "<group>"; };
+		788AC48B2DBD829500B900A6 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -545,6 +547,7 @@
 			isa = PBXGroup;
 			children = (
 				782210652DB5761700473F39 /* ActionButton.swift */,
+				788AC48B2DBD829500B900A6 /* FloatingButton.swift */,
 				782210672DB5784A00473F39 /* LinkButton.swift */,
 			);
 			path = Buttons;
@@ -654,6 +657,7 @@
 				7822106F2DB5936900473F39 /* Image+Extensions.swift in Sources */,
 				782210482DB5710900473F39 /* DatePickerView.swift in Sources */,
 				78220FE32DB47BA900473F39 /* User.swift in Sources */,
+				788AC48C2DBD829A00B900A6 /* FloatingButton.swift in Sources */,
 				782210332DB56F9F00473F39 /* CodeEntryView.swift in Sources */,
 				7822103E2DB5705C00473F39 /* MainTabView.swift in Sources */,
 				782210512DB5718700473F39 /* ProfileView.swift in Sources */,

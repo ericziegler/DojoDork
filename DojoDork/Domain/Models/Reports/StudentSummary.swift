@@ -72,6 +72,34 @@ extension StudentSummaries {
                 totalClassesAttended: 100,
                 classesSinceLastPromotion: 11
             ),
+            .init(
+                studentId: "678",
+                studentName: "Rocky",
+                lastPromotionDate: "2024-12-05",
+                totalClassesAttended: 100,
+                classesSinceLastPromotion: 15
+            ),
+            .init(
+                studentId: "789",
+                studentName: "Adam",
+                lastPromotionDate: "2024-12-05",
+                totalClassesAttended: 90,
+                classesSinceLastPromotion: 12
+            ),
+            .init(
+                studentId: "901",
+                studentName: "Aisha",
+                lastPromotionDate: "2025-01-19",
+                totalClassesAttended: 100,
+                classesSinceLastPromotion: 9
+            ),
+            .init(
+                studentId: "0012",
+                studentName: "Katherine",
+                lastPromotionDate: nil,
+                totalClassesAttended: 3,
+                classesSinceLastPromotion: 5
+            )
         ]
     }
 }
