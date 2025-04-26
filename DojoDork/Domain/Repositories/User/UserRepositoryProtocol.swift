@@ -9,6 +9,6 @@ protocol UserRepositoryProtocol {
     func createUser(email: String, name: String) async throws -> Bool
     func requestLoginCode(email: String) async throws -> Bool
     func validateLoginCode(email: String, code: String) async throws
-    func fetchUserInfo() async throws -> User
+    func loadUser() async throws -> User
     func logout()
 }

@@ -5,10 +5,12 @@
 import Foundation
 
 let tokenCacheKey = "com.dojodork.tokenKey"
+let userCacheKey = "com.dojodork.userKey"
 
 final class UserRepository: UserRepositoryProtocol {
     
     private(set) var token: String? = nil
+    private(set) var user: User? = nil
     
     private let networkService: NetworkServiceProtocol
     private let cacheService: CacheServiceProtocol
@@ -20,6 +22,9 @@ final class UserRepository: UserRepositoryProtocol {
         self.networkService = networkService
         self.cacheService = cacheService
         loadToken()
+        Task {
+            try? await loadUser()
+        }
     }
     
     func createUser(email: String, name: String) async throws -> Bool {
@@ -55,16 +60,7 @@ final class UserRepository: UserRepositoryProtocol {
             throw APIError.decodingFailed
         }
         
-        setToken(token)
-    }
-    
-    func fetchUserInfo() async throws -> User {
-        let data = try await networkService.request(endpoint: "user/info.php")
-        return try JSONParser.parse(json: data)
-    }
-    
-    func logout() {
-        clearToken()
+        saveToken(token)
     }
     
     // MARK: - Token
@@ -73,13 +69,47 @@ final class UserRepository: UserRepositoryProtocol {
         token = cacheService.loadString(for: tokenCacheKey)
     }
     
-    func setToken(_ token: String) {
+    private func saveToken(_ token: String) {
         cacheService.saveString(token, for: tokenCacheKey)
         self.token = token
     }
     
-    func clearToken() {
+    private func clearToken() {
         cacheService.removeString(for: tokenCacheKey)
-        self.token = nil
+        token = nil
+    }
+    
+    // MARK: - User
+    
+    func loadUser() async throws -> User {
+        if let userData = cacheService.loadData(for: userCacheKey),
+           let user = try? JSONDecoder().decode(User.self, from: userData) {
+            return user
+        } else {
+            let data = try await networkService.request(endpoint: "user/info.php", credentials: ["token": token ?? ""])
+            let user: User = try JSONParser.parse(json: data, key: "user")
+            self.user = user
+            saveUser()
+            return user
+        }
+    }
+    
+    private func saveUser() {
+        guard let user,
+              let userData = try? JSONEncoder().encode(user) else {
+            return
+        }
+        
+        cacheService.save(data: userData, for: userCacheKey)
+    }
+    
+    private func clearUser() {
+        cacheService.removeData(for: userCacheKey)
+        user = nil
+    }
+    
+    func logout() {
+        clearToken()
+        clearUser()
     }
 }

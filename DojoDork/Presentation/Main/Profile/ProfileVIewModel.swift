@@ -12,15 +12,27 @@ final class ProfileViewModel {
     
     private let userRepo: UserRepositoryProtocol
     
-    var username: String = "TEST USER"
+    var username: String = " "
     
     // MARK: - Init
     
     init(userRepo: UserRepositoryProtocol = DependencyContainer.resolveUserRepository()) {
         self.userRepo = userRepo
+        Task {
+            await self.loadUserInfo()
+        }
     }
     
     // MARK: - User
+    
+    private func loadUserInfo() async {
+        do {
+            let user = try await userRepo.loadUser()
+            username = user.name
+        } catch {
+            print(error)
+        }
+    }
     
     func logout() {
         userRepo.logout()
