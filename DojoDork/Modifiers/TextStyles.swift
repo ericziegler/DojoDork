@@ -14,10 +14,24 @@ private struct AppNavStyle: ViewModifier {
     }
 }
 
+private struct AppLargeTitleStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.appLargeTitle)
+    }
+}
+
 private struct AppTitleStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(.appTitle)
+    }
+}
+
+private struct AppLargeHeaderStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.appLargeHeader)
     }
 }
 
@@ -80,8 +94,16 @@ extension View {
         modifier(AppNavStyle())
     }
     
+    func appLargeTitleStyle() -> some View {
+        modifier(AppLargeTitleStyle())
+    }
+    
     func appTitleStyle() -> some View {
         modifier(AppTitleStyle())
+    }
+    
+    func appLargeHeaderStyle() -> some View {
+        modifier(AppLargeHeaderStyle())
     }
     
     func appHeaderStyle() -> some View {

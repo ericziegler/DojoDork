@@ -70,6 +70,8 @@
 		788AC48C2DBD829A00B900A6 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AC48B2DBD829500B900A6 /* FloatingButton.swift */; };
 		788AC48F2DBDD77F00B900A6 /* StudentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AC48E2DBDD77A00B900A6 /* StudentViewModel.swift */; };
 		788AC4922DBDD7AE00B900A6 /* StudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AC4912DBDD7AC00B900A6 /* StudentView.swift */; };
+		788AC4952DBED37D00B900A6 /* AddStudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AC4942DBED37B00B900A6 /* AddStudentView.swift */; };
+		788AC4972DBED38500B900A6 /* AddStudentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AC4962DBED38100B900A6 /* AddStudentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -136,6 +138,8 @@
 		788AC48B2DBD829500B900A6 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		788AC48E2DBDD77A00B900A6 /* StudentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewModel.swift; sourceTree = "<group>"; };
 		788AC4912DBDD7AC00B900A6 /* StudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentView.swift; sourceTree = "<group>"; };
+		788AC4942DBED37B00B900A6 /* AddStudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentView.swift; sourceTree = "<group>"; };
+		788AC4962DBED38100B900A6 /* AddStudentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -560,8 +564,18 @@
 			children = (
 				788AC4912DBDD7AC00B900A6 /* StudentView.swift */,
 				788AC48E2DBDD77A00B900A6 /* StudentViewModel.swift */,
+				788AC4932DBED36D00B900A6 /* AddStudent */,
 			);
 			path = Student;
+			sourceTree = "<group>";
+		};
+		788AC4932DBED36D00B900A6 /* AddStudent */ = {
+			isa = PBXGroup;
+			children = (
+				788AC4942DBED37B00B900A6 /* AddStudentView.swift */,
+				788AC4962DBED38100B900A6 /* AddStudentViewModel.swift */,
+			);
+			path = AddStudent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -645,6 +659,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				788AC4952DBED37D00B900A6 /* AddStudentView.swift in Sources */,
 				782210162DB48E6A00473F39 /* UserRepositoryProtocol.swift in Sources */,
 				7822100A2DB486D400473F39 /* NetworkConstants.swift in Sources */,
 				78220FE92DB47C6E00473F39 /* Program.swift in Sources */,
@@ -658,6 +673,7 @@
 				78220FF62DB4854F00473F39 /* OverviewReport.swift in Sources */,
 				782210572DB571F000473F39 /* EditEntityView.swift in Sources */,
 				78767CA02DBCFD190075BA38 /* StudentCard.swift in Sources */,
+				788AC4972DBED38500B900A6 /* AddStudentViewModel.swift in Sources */,
 				7822101D2DB48F7B00473F39 /* ProgramRepository.swift in Sources */,
 				782210102DB48BA100473F39 /* JSONParser.swift in Sources */,
 				78220FE12DB47B5C00473F39 /* DependencyContainer.swift in Sources */,

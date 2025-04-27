@@ -18,55 +18,19 @@ struct StudentView: View {
     var body: some View {
         NavigationStack {
             SolidBackground {
-                VStack(spacing: 24) {
-                    if isEditing {
-                        TextField("Student Name", text: $viewModel.name)
-                            .textFieldStyle(.roundedBorder)
-                    } else {
-                        Text(viewModel.name)
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
+                VStack(spacing: 48) {
+                    VStack (spacing: 12) {
+                        renderName()
+                        renderPromotion()
                     }
-
-                    Text("Last Promoted: \(viewModel.lastPromotedString)")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                    
-                    HStack {
-                        VStack {
-                            Text("\(viewModel.classesSincePromotion)")
-                                .font(.title2)
-                                .fontWeight(.semibold)
-                            Text("Since Promotion")
-                                .font(.caption)
-                        }
-                        Spacer()
-                        VStack {
-                            Text("\(viewModel.totalClasses)")
-                                .font(.title2)
-                                .fontWeight(.semibold)
-                            Text("Total Classes")
-                                .font(.caption)
-                        }
-                    }
-                    .padding(.horizontal)
-
-                    if isEditing {
-                        ActionButton(title: "Delete Student") {
-                            showDeleteAlert = true
-                        }
-                        .foregroundStyle(.appError)
-                        .padding(.top, 32)
-                    } else {
-                        ActionButton(title: "Promote Student") {
-                            viewModel.promoteStudent()
-                        }
-                        .padding(.top, 32)
-                    }
-                    
+                    Separator()
+                    renderAttendanceSummary()
+                    Separator()
+                    renderActionButton()
                     Spacer()
                 }
-                .padding()
+                .padding(.top, 64)
+                .padding(.horizontal, 24)
                 .alert("Delete Student", isPresented: $showDeleteAlert) {
                     Button("Delete", role: .destructive) {
                         viewModel.deleteStudent()
@@ -78,7 +42,7 @@ struct StudentView: View {
                 }
             }
             .navigationBar(
-                title: "Student Info",
+                title: isEditing ? "Edit Student" : "Student Info",
                 leadingItem: {
                     renderLeadingButton()
                 },
@@ -87,6 +51,56 @@ struct StudentView: View {
                 },
                 allowsBackButton: false
             )
+        }
+    }
+    
+    @ViewBuilder private func renderName() -> some View {
+        if isEditing {
+            AppField(placeholder: "Student Name", text: $viewModel.name)
+        } else {
+            Text(viewModel.name)
+                .appLargeHeaderStyle()
+        }
+    }
+    
+    @ViewBuilder private func renderPromotion() -> some View {
+        Text("Last Promoted: \(viewModel.lastPromotedString)")
+            .appBodyStyle()
+            .foregroundColor(.secondary)
+    }
+    
+    @ViewBuilder private func renderAttendanceSummary() -> some View {
+        HStack {
+            VStack {
+                Text("\(viewModel.classesSincePromotion)")
+                    .appLargeTitleStyle()
+                    .foregroundStyle(.brand)
+                Text("Since Promotion")
+                    .appCaptionStyle()
+            }
+            Spacer()
+            VStack {
+                Text("\(viewModel.totalClasses)")
+                    .appLargeTitleStyle()
+                    .foregroundStyle(.brand)
+                Text("Total Classes")
+                    .appCaptionStyle()
+            }
+        }
+        .padding(.horizontal)
+    }
+    
+    @ViewBuilder private func renderActionButton() -> some View {
+        if isEditing {
+            ActionButton(title: "Delete Student", color: .appError) {
+                showDeleteAlert = true
+            }
+            .padding(.top, 32)
+        } else {
+            ActionButton(title: "Promote Student") {
+                viewModel.promoteStudent()
+            }
+            .padding(.top, 32)
         }
     }
     

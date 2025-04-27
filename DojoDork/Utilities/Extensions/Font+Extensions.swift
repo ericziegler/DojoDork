@@ -18,12 +18,20 @@ extension Font {
 
 extension Font {
     
+    static var appLargeTitle: Font {
+        .bernhardGothic(size: 48)
+    }
+    
     static var appTitle: Font {
         .bernhardGothic(size: 28)
     }
     
     static var appNav: Font {
         .system(size: 24, weight: .semibold)
+    }
+    
+    static var appLargeHeader: Font {
+        .system(size: 34, weight: .semibold)
     }
     
     static var appHeader: Font {
@@ -60,6 +68,12 @@ extension Font {
     VStack {
         Text("Title")
             .appTitleStyle()
+        
+        Text("Large Header")
+            .appLargeHeaderStyle()
+        
+        Text("Header")
+            .appHeaderStyle()
         
         Text("Subtitle")
             .appSubtitleStyle()

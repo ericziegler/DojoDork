@@ -8,6 +8,7 @@ struct ActionButton: View {
     
     let title: String
     var systemImage: String?
+    var color: Color = .brand
     let action: () -> Void
     
     @State private var hapticFeedback = false
@@ -27,13 +28,13 @@ struct ActionButton: View {
                     .appButtonStyle()
             }
             .frame(maxWidth: .infinity)
-            .foregroundColor(.brand)
+            .foregroundColor(color)
             .padding(.horizontal, 20)
             .padding(.vertical, 16)
             .background(Color.clear)
             .overlay(
                 RoundedRectangle(cornerRadius: 100)
-                    .stroke(.brand, lineWidth: 4)
+                    .stroke(color, lineWidth: 4)
             )
         }
         .sensoryFeedback(.impact, trigger: hapticFeedback)
