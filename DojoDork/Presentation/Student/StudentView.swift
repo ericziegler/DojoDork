@@ -33,12 +33,19 @@ struct StudentView: View {
                 .padding(.horizontal, 24)
                 .alert("Delete Student", isPresented: $showDeleteAlert) {
                     Button("Delete", role: .destructive) {
-                        viewModel.deleteStudent()
-                        dismiss()
+                        Task {
+                            await viewModel.deleteStudent()
+                            dismiss()
+                        }
                     }
                     Button("Cancel", role: .cancel) {}
                 } message: {
                     Text("Are you sure you want to delete this student?")
+                }
+            }
+            .overlay {
+                if viewModel.isLoading {
+                    LoadingView()
                 }
             }
             .navigationBar(
@@ -98,7 +105,9 @@ struct StudentView: View {
             .padding(.top, 32)
         } else {
             ActionButton(title: "Promote Student") {
-                viewModel.promoteStudent()
+                Task {
+                    await viewModel.promoteStudent()
+                }
             }
             .padding(.top, 32)
         }
@@ -125,8 +134,10 @@ struct StudentView: View {
     @ViewBuilder private func renderTrailingButton() -> some View {
         Button {
             if isEditing {
-                viewModel.saveChanges()
-                isEditing = false
+                Task {
+                    await viewModel.saveChanges()
+                    isEditing = false
+                }
             } else {
                 isEditing = true
             }
