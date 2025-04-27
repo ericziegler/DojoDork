@@ -5,12 +5,11 @@
 import SwiftUI
 
 struct StudentCard: View {
-    let student: StudentSummary
+    let student: Student
     
     private var lastPromoted: String {
-        if let promoDateString = student.lastPromotionDate,
-           let promoDate = DateFormatter.attendance.date(from: promoDateString) {
-            return DateFormatter.display.string(from: promoDate)
+        if let date = student.lastPromotionDate {
+            return DateFormatter.display.string(from: date)
         } else {
             return "N/A"
         }
@@ -24,7 +23,7 @@ struct StudentCard: View {
             
             VStack(alignment: .trailing, spacing: 8) {
                 VStack {
-                    Text("\(student.classesSinceLastPromotion)")
+                    Text("\(student.classCountSincePromo)")
                         .appHeaderStyle()
                         .foregroundStyle(.brand)
                     
@@ -47,7 +46,7 @@ struct StudentCard: View {
     
     @ViewBuilder private func renderStudentInfo() -> some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(student.studentName)
+            Text(student.name)
                 .appHeaderStyle()
                 .foregroundStyle(.appText)
             

@@ -9,9 +9,8 @@ import SwiftUI
 final class RosterViewModel {
     
     private let studentRepository: StudentRepositoryProtocol
-    private let attendanceRepository: AttendanceRepositoryProtocol
     
-    var students: StudentSummaries = []
+    var students: Students = []
     var isLoading: Bool = false
     var showAlert: Bool = false
     var alertMessage: String = ""
@@ -19,11 +18,9 @@ final class RosterViewModel {
     var searchText: String = ""
 
     init(
-        studentRepository: StudentRepositoryProtocol = DependencyContainer.resolveStudentRepository(),
-        attendanceRepository: AttendanceRepositoryProtocol = DependencyContainer.resolveAttendanceRepository()
+        studentRepository: StudentRepositoryProtocol = DependencyContainer.resolveStudentRepository()
     ) {
         self.studentRepository = studentRepository
-        self.attendanceRepository = attendanceRepository
     }
     
     func loadStudents() async {
@@ -33,7 +30,7 @@ final class RosterViewModel {
         do {
             let basicStudents = try await studentRepository.listStudents()
             // TODO: EZ
-            let summaries = StudentSummaries.mockData
+            let fetchedStudents = Students.mockData
 //            var summaries: StudentSummaries = []
 //            for student in basicStudents {
 //                do {
@@ -43,23 +40,23 @@ final class RosterViewModel {
 //                    print("Failed to load summary for student id \(student.id): \(error.localizedDescription)")
 //                }
 //            }
-            self.students = applySort(to: summaries)
+            self.students = applySort(to: fetchedStudents)
         } catch {
             alertMessage = error.localizedDescription
             showAlert = true
         }
     }
     
-    func applySort(to students: StudentSummaries) -> StudentSummaries {
+    func applySort(to students: Students) -> Students {
         switch sortOption {
         case .nameAscending:
-            return students.sorted { $0.studentName.lowercased() < $1.studentName.lowercased() }
+            return students.sorted { $0.name.lowercased() < $1.name.lowercased() }
         case .nameDescending:
-            return students.sorted { $0.studentName.lowercased() > $1.studentName.lowercased() }
+            return students.sorted { $0.name.lowercased() > $1.name.lowercased() }
         case .classCountDescending:
-            return students.sorted { $0.classesSinceLastPromotion > $1.classesSinceLastPromotion }
+            return students.sorted { $0.classCountSincePromo > $1.classCountSincePromo }
         case .classCountAscending:
-            return students.sorted { $0.classesSinceLastPromotion < $1.classesSinceLastPromotion }
+            return students.sorted { $0.classCountSincePromo < $1.classCountSincePromo }
         }
     }
     
@@ -67,11 +64,11 @@ final class RosterViewModel {
         students = applySort(to: students)
     }
     
-    var filteredStudents: StudentSummaries {
+    var filteredStudents: Students {
         guard !searchText.isEmpty else {
             return students
         }
         
-        return students.filter { $0.studentName.localizedCaseInsensitiveContains(searchText) }
+        return students.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
     }
 }

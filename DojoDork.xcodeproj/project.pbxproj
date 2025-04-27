@@ -19,7 +19,6 @@
 		78220FE62DB47BBE00473F39 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78220FE52DB47BBD00473F39 /* Student.swift */; };
 		78220FE92DB47C6E00473F39 /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78220FE82DB47C6C00473F39 /* Program.swift */; };
 		78220FEC2DB47C9100473F39 /* AttendanceLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78220FEB2DB47C8D00473F39 /* AttendanceLog.swift */; };
-		78220FEF2DB47CB300473F39 /* StudentSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78220FEE2DB47CAA00473F39 /* StudentSummary.swift */; };
 		78220FF12DB47CC400473F39 /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78220FF02DB47CC100473F39 /* DateFormatter+Extensions.swift */; };
 		78220FF42DB4807B00473F39 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 78220FF32DB4807B00473F39 /* Swinject */; };
 		78220FF62DB4854F00473F39 /* OverviewReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78220FF52DB4854D00473F39 /* OverviewReport.swift */; };
@@ -69,6 +68,8 @@
 		78767CA02DBCFD190075BA38 /* StudentCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78767C9F2DBCFD190075BA38 /* StudentCard.swift */; };
 		78767CA22DBD06E80075BA38 /* RosterSortOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78767CA12DBD06E50075BA38 /* RosterSortOption.swift */; };
 		788AC48C2DBD829A00B900A6 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AC48B2DBD829500B900A6 /* FloatingButton.swift */; };
+		788AC48F2DBDD77F00B900A6 /* StudentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AC48E2DBDD77A00B900A6 /* StudentViewModel.swift */; };
+		788AC4922DBDD7AE00B900A6 /* StudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AC4912DBDD7AC00B900A6 /* StudentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,7 +87,6 @@
 		78220FE52DB47BBD00473F39 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		78220FE82DB47C6C00473F39 /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
 		78220FEB2DB47C8D00473F39 /* AttendanceLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceLog.swift; sourceTree = "<group>"; };
-		78220FEE2DB47CAA00473F39 /* StudentSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentSummary.swift; sourceTree = "<group>"; };
 		78220FF02DB47CC100473F39 /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
 		78220FF52DB4854D00473F39 /* OverviewReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewReport.swift; sourceTree = "<group>"; };
 		78220FFA2DB485DC00473F39 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
@@ -134,6 +134,8 @@
 		78767C9F2DBCFD190075BA38 /* StudentCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCard.swift; sourceTree = "<group>"; };
 		78767CA12DBD06E50075BA38 /* RosterSortOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosterSortOption.swift; sourceTree = "<group>"; };
 		788AC48B2DBD829500B900A6 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
+		788AC48E2DBDD77A00B900A6 /* StudentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewModel.swift; sourceTree = "<group>"; };
+		788AC4912DBDD7AC00B900A6 /* StudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +233,7 @@
 			children = (
 				7822102B2DB56F1E00473F39 /* Auth */,
 				7822103B2DB5704800473F39 /* Main */,
+				788AC48D2DBDD76200B900A6 /* Student */,
 				7822105F2DB5725B00473F39 /* Common */,
 			);
 			path = Presentation;
@@ -331,7 +334,6 @@
 			isa = PBXGroup;
 			children = (
 				78220FF52DB4854D00473F39 /* OverviewReport.swift */,
-				78220FEE2DB47CAA00473F39 /* StudentSummary.swift */,
 			);
 			path = Reports;
 			sourceTree = "<group>";
@@ -553,6 +555,15 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
+		788AC48D2DBDD76200B900A6 /* Student */ = {
+			isa = PBXGroup;
+			children = (
+				788AC4912DBDD7AC00B900A6 /* StudentView.swift */,
+				788AC48E2DBDD77A00B900A6 /* StudentViewModel.swift */,
+			);
+			path = Student;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -643,6 +654,7 @@
 				782210202DB490BF00473F39 /* StudentRepositoryProtocol.swift in Sources */,
 				782210452DB570AA00473F39 /* AttendanceViewModel.swift in Sources */,
 				782210062DB486BB00473F39 /* APIError.swift in Sources */,
+				788AC48F2DBDD77F00B900A6 /* StudentViewModel.swift in Sources */,
 				78220FF62DB4854F00473F39 /* OverviewReport.swift in Sources */,
 				782210572DB571F000473F39 /* EditEntityView.swift in Sources */,
 				78767CA02DBCFD190075BA38 /* StudentCard.swift in Sources */,
@@ -678,9 +690,9 @@
 				78220FCA2DB478BE00473F39 /* DojoDorkApp.swift in Sources */,
 				78767C9D2DBC7D540075BA38 /* Tab.swift in Sources */,
 				7822100C2DB486EA00473F39 /* ResponseStatus.swift in Sources */,
-				78220FEF2DB47CB300473F39 /* StudentSummary.swift in Sources */,
 				7822104E2DB5714000473F39 /* RoterViewModel.swift in Sources */,
 				7822103A2DB5700000473F39 /* CreateAccountView.swift in Sources */,
+				788AC4922DBDD7AE00B900A6 /* StudentView.swift in Sources */,
 				7822101B2DB48F6900473F39 /* ProgramRepositoryProtocol.swift in Sources */,
 				78220FF12DB47CC400473F39 /* DateFormatter+Extensions.swift in Sources */,
 				78220FFB2DB485DF00473F39 /* NetworkServiceProtocol.swift in Sources */,

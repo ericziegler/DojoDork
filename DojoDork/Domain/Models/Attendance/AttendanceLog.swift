@@ -7,5 +7,5 @@ import Foundation
 typealias AttendanceLogs = [AttendanceLog]
 
 struct AttendanceLog: Codable {
-    let date: String // format: yyyy-MM-dd
+    let date: Date // format: yyyy-MM-dd
 }

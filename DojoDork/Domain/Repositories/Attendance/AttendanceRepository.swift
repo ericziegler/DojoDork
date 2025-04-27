@@ -51,13 +51,4 @@ final class AttendanceRepository: AttendanceRepositoryProtocol {
         )
         return try JSONParser.parse(json: data, key: "students")
     }
-
-    func studentSummary(for studentId: String) async throws -> StudentSummary {
-        let data = try await networkService.request(
-            endpoint: "report/student_summary.php",
-            parameters: ["student_id": studentId],
-            credentials: tokenParam
-        )
-        return try JSONParser.parse(json: data)
-    }
 }

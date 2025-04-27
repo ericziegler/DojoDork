@@ -9,22 +9,22 @@ typealias Students = [Student]
 struct Student: Codable, Identifiable {
     let id: String
     let name: String
-    let lastPromotionDate: String? // format: yyyy-MM-dd
+    let lastPromotionDate: Date? // format: yyyy-MM-dd
+    var classCountTotal: Int = 0
+    var classCountSincePromo: Int = 0
 
     enum CodingKeys: String, CodingKey {
         case id
         case name
         case lastPromotionDate = "last_promotion_date"
+        case classCountTotal = "total_classes_attended"
+        case classCountSincePromo = "classes_since_last_promotion"
     }
 }
 
 extension Student {
     static var mockData: Student {
-        .init(
-            id: "mock-student-id",
-            name: "Test Student",
-            lastPromotionDate: "2025-02-14"
-        )
+        Students.mockData.first!
     }
 }
 
@@ -32,30 +32,68 @@ extension Students {
     static var mockData: Students {
         [
             .init(
-                id: "123",
-                name: "Jason",
-                lastPromotionDate: "2024-12-05"
+                id: "012",
+                name: "Tommy",
+                lastPromotionDate: DateFormatter.attendance.date(from: "2025-02-05"),
+                classCountTotal: 100,
+                classCountSincePromo: 9
             ),
             .init(
                 id: "234",
                 name: "Trini",
-                lastPromotionDate: "2024-12-05"
+                lastPromotionDate: DateFormatter.attendance.date(from: "2024-12-05"),
+                classCountTotal: 90,
+                classCountSincePromo: 12
             ),
             .init(
                 id: "345",
                 name: "Billy",
-                lastPromotionDate: "2025-01-19"
+                lastPromotionDate: DateFormatter.attendance.date(from: "2025-01-19"),
+                classCountTotal: 100,
+                classCountSincePromo: 9
             ),
             .init(
                 id: "456",
                 name: "Kimberly",
-                lastPromotionDate: nil
+                lastPromotionDate: nil,
+                classCountTotal: 3,
+                classCountSincePromo: 5
             ),
             .init(
                 id: "567",
                 name: "Zack",
-                lastPromotionDate: "2025-02-20"
+                lastPromotionDate: DateFormatter.attendance.date(from: "2025-02-20"),
+                classCountTotal: 100,
+                classCountSincePromo: 11
             ),
+            .init(
+                id: "678",
+                name: "Rocky",
+                lastPromotionDate: DateFormatter.attendance.date(from: "2024-12-05"),
+                classCountTotal: 100,
+                classCountSincePromo: 15
+            ),
+            .init(
+                id: "789",
+                name: "Adam",
+                lastPromotionDate: DateFormatter.attendance.date(from: "2024-12-05"),
+                classCountTotal: 90,
+                classCountSincePromo: 12
+            ),
+            .init(
+                id: "901",
+                name: "Aisha",
+                lastPromotionDate: DateFormatter.attendance.date(from: "2025-01-19"),
+                classCountTotal: 100,
+                classCountSincePromo: 9
+            ),
+            .init(
+                id: "0012",
+                name: "Katherine",
+                lastPromotionDate: nil,
+                classCountTotal: 3,
+                classCountSincePromo: 5
+            )
         ]
     }
 }

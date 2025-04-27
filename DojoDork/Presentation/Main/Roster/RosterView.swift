@@ -9,6 +9,9 @@ struct RosterView: View {
     @State private var viewModel = RosterViewModel()
     @Binding var showProfile: Bool
     @State private var isShowingSortOptions = false
+    @State private var selectedStudent: Student? = nil
+    @State private var isShowingStudentView = false
+    private let bottomButtonPadding = 80.0
 
     var body: some View {
         NavigationStack {
@@ -45,6 +48,11 @@ struct RosterView: View {
                 
                 renderAddButton()
             }
+            .sheet(isPresented: $isShowingStudentView) {
+                if let student = selectedStudent {
+                    StudentView(student: student)
+                }
+            }
         }
     }
     
@@ -75,13 +83,20 @@ struct RosterView: View {
     @ViewBuilder private func renderStudentList() -> some View {
         ScrollView {
             LazyVStack(spacing: 16) {
-                ForEach(viewModel.filteredStudents, id: \.studentId) { studentSummary in
-                    StudentCard(student: studentSummary)
+                ForEach(viewModel.filteredStudents, id: \.id) { student in
+                    StudentCard(student: student)
+                        .padding(.horizontal)
+                        .onTapGesture {
+                            selectedStudent = student
+                            isShowingStudentView = true
+                        }
                 }
-                .padding(.horizontal)
             }
             .padding(.top)
-            .padding(.bottom, 100)
+            .padding(.bottom, bottomButtonPadding)
+            .onTapGesture {
+                print("TAPPED")
+            }
         }
         .refreshable {
             await viewModel.loadStudents()
