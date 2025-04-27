@@ -11,6 +11,7 @@ struct RosterView: View {
     @State private var isShowingSortOptions = false
     @State private var selectedStudent: Student? = nil
     @State private var isShowingStudentView = false
+    @State private var isShowingAddStudentView = false
     private let bottomButtonPadding = 80.0
 
     var body: some View {
@@ -52,6 +53,13 @@ struct RosterView: View {
                 if let student = selectedStudent {
                     StudentView(student: student)
                 }
+            }
+            .sheet(isPresented: $isShowingAddStudentView, onDismiss: {
+                Task {
+                    await viewModel.loadStudents()
+                }
+            }) {
+                AddStudentView()
             }
         }
     }
