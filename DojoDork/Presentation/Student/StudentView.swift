@@ -10,6 +10,7 @@ struct StudentView: View {
     @State private var viewModel: StudentViewModel
     @State private var isEditing = false
     @State private var showDeleteAlert = false
+    @State private var showDatePicker = false
     
     var onStudentUpdated: ((_ studentId: String) -> Void)?
     var onStudentPromoted: ((_ studentId: String) -> Void)?
@@ -54,6 +55,15 @@ struct StudentView: View {
                     Button("Cancel", role: .cancel) {}
                 } message: {
                     Text("Are you sure you want to delete this student?")
+                }
+                .sheet(isPresented: $showDatePicker) {
+                    DatePickerView(minDate: .distantPast, maxDate: Date()) { date in
+                        Task {
+                            await viewModel.promoteStudent(date: date)
+                            onStudentPromoted?(viewModel.studentId)
+                            dismiss()
+                        }
+                    }
                 }
             }
             .overlay {
@@ -118,11 +128,7 @@ struct StudentView: View {
             .padding(.top, 32)
         } else {
             ActionButton(title: "Promote Student") {
-                Task {
-                    await viewModel.promoteStudent()
-                    onStudentPromoted?(viewModel.studentId)
-                    dismiss()
-                }
+                showDatePicker = true
             }
             .padding(.top, 32)
         }

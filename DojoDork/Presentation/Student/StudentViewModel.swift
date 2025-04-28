@@ -38,15 +38,15 @@ final class StudentViewModel {
         return DateFormatter.display.string(from: lastPromoted)
     }
     
-    func promoteStudent() async {
+    func promoteStudent(date: Date) async {
         isLoading = true
         do {
-            let newPromoDate = DateFormatter.attendance.string(from: Date())
+            let newPromoDate = DateFormatter.attendance.string(from: date)
             try await studentRepo.updateStudent(id: originalStudent.id, name: nil, promotionDate: newPromoDate)
         } catch {
             showAlert(message: "We were unable to promote the student at this time.")
         }
-        lastPromoted = Date()
+        lastPromoted = date
         classesSincePromotion = 0
     }
     

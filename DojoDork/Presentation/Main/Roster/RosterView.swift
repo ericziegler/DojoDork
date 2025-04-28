@@ -33,9 +33,6 @@ struct RosterView: View {
                     renderSortButton()
                 })
                 .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always))
-                .alert(viewModel.alertMessage, isPresented: $viewModel.showAlert) {
-                    Button("OK", role: .cancel) {}
-                }
                 .confirmationDialog("Sort By", isPresented: $isShowingSortOptions, titleVisibility: .visible) {
                     ForEach(RosterSortOption.allCases) { option in
                         Button(option.rawValue) {
@@ -49,6 +46,9 @@ struct RosterView: View {
                 }
                 
                 renderAddButton()
+            }
+            .alert(viewModel.alertMessage, isPresented: $viewModel.showAlert) {
+                Button("OK", role: .cancel) {}
             }
             .sheet(item: $selectedStudent) { student in
                 StudentView(student: student) { studentId in
@@ -162,9 +162,11 @@ struct RosterView: View {
     private func handleRosterUpdate(with message: String, studentId: String?) {
         Task {
             await viewModel.loadStudents()
-            viewModel.showAlert(message: "Student promoted!")
             if let studentId {
                 scrollTargetStudentId = studentId
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.viewModel.showAlert(message: message)
             }
         }
     }

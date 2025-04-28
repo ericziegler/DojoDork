@@ -23,11 +23,12 @@ struct DatePickerView: View {
                 )
                 .datePickerStyle(GraphicalDatePickerStyle())
                 .padding()
-                .onChange(of: selectedDate) { _, newDate in
-                    onDateSelected?(newDate)
+                Spacer()
+                ActionButton(title: "Done") {
+                    onDateSelected?(selectedDate)
                     dismiss()
                 }
-                Spacer()
+                .padding(24)
             }
             .navigationTitle("Pick a Date")
             .toolbar {
