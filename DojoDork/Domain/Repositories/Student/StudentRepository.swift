@@ -22,11 +22,8 @@ final class StudentRepository: StudentRepositoryProtocol {
         self.cacheService = cacheService
     }
     
-    func createStudent(name: String, promotionDate: String?) async throws -> String {
-        var params: Parameters = ["name": name]
-        if let promotionDate = promotionDate {
-            params["last_promotion_date"] = promotionDate
-        }
+    func createStudent(name: String) async throws -> String {
+        let params: Parameters = ["name": name]
         
         let data = try await networkService.request(
             endpoint: "student/create.php",

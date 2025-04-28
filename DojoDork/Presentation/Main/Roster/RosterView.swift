@@ -10,8 +10,9 @@ struct RosterView: View {
     @Binding var showProfile: Bool
     @State private var isShowingSortOptions = false
     @State private var selectedStudent: Student? = nil
-    @State private var isShowingStudentView = false
     @State private var isShowingAddStudentView = false
+    @State private var scrollTargetStudentId = ""
+    @State private var taskId: UUID = .init()
     private let bottomButtonPadding = 80.0
 
     var body: some View {
@@ -49,16 +50,21 @@ struct RosterView: View {
                 
                 renderAddButton()
             }
-            .sheet(isPresented: $isShowingStudentView) {
-                if let student = selectedStudent {
-                    StudentView(student: student)
+            .sheet(item: $selectedStudent) { student in
+                StudentView(student: student) { studentId in
+                    handleRosterUpdate(with: "Student updated!", studentId: studentId)
+                } onStudentPromoted: { studentId in
+                    handleRosterUpdate(with: "Student promoted!", studentId: studentId)
+                } onStudentDeleted: {
+                    handleRosterUpdate(with: "Student deleted!", studentId: nil)
                 }
+
             }
             .sheet(isPresented: $isShowingAddStudentView, content: {
-                AddStudentView { name in
+                AddStudentView { studentId in
                     Task {
                         await viewModel.loadStudents()
-                        viewModel.showAlert(message: "\(name) added!")
+                        scrollTargetStudentId = studentId
                     }
                 }
             })
@@ -90,22 +96,34 @@ struct RosterView: View {
     // MARK: - List Content
 
     @ViewBuilder private func renderStudentList() -> some View {
-        ScrollView {
-            LazyVStack(spacing: 16) {
-                ForEach(viewModel.filteredStudents, id: \.id) { student in
-                    StudentCard(student: student)
-                        .padding(.horizontal)
-                        .onTapGesture {
-                            selectedStudent = student
-                            isShowingStudentView = true
-                        }
+        ScrollViewReader { value in
+            ScrollView {
+                LazyVStack(spacing: 16) {
+                    ForEach(viewModel.filteredStudents, id: \.id) { student in
+                        StudentCard(student: student)
+                            .id(student.id)
+                            .padding(.horizontal)
+                            .onTapGesture {
+                                DispatchQueue.main.async {
+                                    self.selectedStudent = student
+                                }
+                            }
+                    }
+                }
+                .padding(.top)
+                .padding(.bottom, bottomButtonPadding)
+                .onChange(of: scrollTargetStudentId) { oldValue, newValue in
+                    withAnimation {
+                        value.scrollTo(newValue, anchor: .top)
+                    }
                 }
             }
-            .padding(.top)
-            .padding(.bottom, bottomButtonPadding)
-        }
-        .refreshable {
-            await viewModel.loadStudents()
+            .refreshable {
+                taskId = .init()
+            }
+            .task(id: taskId) {
+                await viewModel.loadStudents()
+            }
         }
     }
     
@@ -137,6 +155,16 @@ struct RosterView: View {
                     isShowingAddStudentView = true
                 }
                 .padding()
+            }
+        }
+    }
+    
+    private func handleRosterUpdate(with message: String, studentId: String?) {
+        Task {
+            await viewModel.loadStudents()
+            viewModel.showAlert(message: "Student promoted!")
+            if let studentId {
+                scrollTargetStudentId = studentId
             }
         }
     }

@@ -10,9 +10,21 @@ struct StudentView: View {
     @State private var viewModel: StudentViewModel
     @State private var isEditing = false
     @State private var showDeleteAlert = false
+    
+    var onStudentUpdated: ((_ studentId: String) -> Void)?
+    var onStudentPromoted: ((_ studentId: String) -> Void)?
+    var onStudentDeleted: (() -> Void)?
 
-    init(student: Student) {
+    init(
+        student: Student,
+        onStudentUpdated: ((_ studentId: String) -> Void)?,
+        onStudentPromoted: ((_ studentId: String) -> Void)?,
+        onStudentDeleted: (() -> Void)?
+    ) {
         _viewModel = State(wrappedValue: StudentViewModel(student: student))
+        self.onStudentUpdated = onStudentUpdated
+        self.onStudentPromoted = onStudentPromoted
+        self.onStudentDeleted = onStudentDeleted
     }
     
     var body: some View {
@@ -35,6 +47,7 @@ struct StudentView: View {
                     Button("Delete", role: .destructive) {
                         Task {
                             await viewModel.deleteStudent()
+                            onStudentDeleted?()
                             dismiss()
                         }
                     }
@@ -107,6 +120,8 @@ struct StudentView: View {
             ActionButton(title: "Promote Student") {
                 Task {
                     await viewModel.promoteStudent()
+                    onStudentPromoted?(viewModel.studentId)
+                    dismiss()
                 }
             }
             .padding(.top, 32)
@@ -136,7 +151,8 @@ struct StudentView: View {
             if isEditing {
                 Task {
                     await viewModel.saveChanges()
-                    isEditing = false
+                    onStudentUpdated?(viewModel.studentId)
+                    dismiss()
                 }
             } else {
                 isEditing = true
@@ -153,5 +169,12 @@ struct StudentView: View {
 }
 
 #Preview {
-    StudentView(student: .mockData)
+    StudentView(student: .mockData) { studentId in
+        
+    } onStudentPromoted: { studentId in
+        
+    } onStudentDeleted: {
+        
+    }
+
 }

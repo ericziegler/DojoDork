@@ -9,6 +9,7 @@ import SwiftUI
 final class AddStudentViewModel {
     
     var name: String = ""
+    private(set) var studentId = ""
     var isLoading = false
     var showAlert: Bool = false
     var alertMessage: String = ""
@@ -21,7 +22,7 @@ final class AddStudentViewModel {
     
     func createStudent() async throws {
         isLoading = true
-        _ = try await studentRepo.createStudent(name: name, promotionDate: nil)
+        studentId = try await studentRepo.createStudent(name: name)
         isLoading = false
     }
     

@@ -57,12 +57,14 @@ struct NavigationBarModifier<Leading: View, Trailing: View>: ViewModifier {
     @ToolbarContentBuilder private func renderLeadingItem() -> some ToolbarContent {
         ToolbarItem(placement: .topBarLeading) {
             leadingItem()
+                .padding(.leading, 8)
         }
     }
 
     @ToolbarContentBuilder private func renderTrailingItem() -> some ToolbarContent {
         ToolbarItem(placement: .topBarTrailing) {
             trailingItem()
+                .padding(.trailing, 8)
         }
     }
 
@@ -95,7 +97,7 @@ extension View {
         title: String,
         @ViewBuilder leadingItem: @escaping () -> Leading = { EmptyView() },
         @ViewBuilder trailingItem: @escaping () -> Trailing = { EmptyView() },
-        allowsBackButton: Bool = true
+        allowsBackButton: Bool = false
     ) -> some View {
         self.modifier(
             NavigationBarModifier(

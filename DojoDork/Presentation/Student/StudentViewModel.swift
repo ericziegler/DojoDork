@@ -9,6 +9,7 @@ import SwiftUI
 final class StudentViewModel {
     private let originalStudent: Student
     
+    private(set) var studentId = ""
     var name: String
     var lastPromoted: Date?
     var classesSincePromotion: Int
@@ -23,6 +24,7 @@ final class StudentViewModel {
         student: Student,
         studentRepo: StudentRepositoryProtocol = DependencyContainer.resolveStudentRepository()
     ) {
+        self.studentId = student.id
         self.originalStudent = student
         self.studentRepo = studentRepo
         self.name = student.name
