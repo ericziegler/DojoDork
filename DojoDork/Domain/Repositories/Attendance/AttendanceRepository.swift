@@ -23,7 +23,7 @@ final class AttendanceRepository: AttendanceRepositoryProtocol {
     }
 
     func toggleAttendance(for studentId: String, on date: String, didAttend: Bool) async throws {
-        _ = try await networkService.request(
+        let data = try await networkService.request(
             endpoint: "attendance/toggle.php",
             parameters: [
                 "student_id": studentId,
@@ -32,6 +32,11 @@ final class AttendanceRepository: AttendanceRepositoryProtocol {
             ],
             credentials: tokenParam
         )
+        
+        let response = try APIDecoder.decodeAPIResponse(EmptyModel.self, from: data)
+        guard response.isSuccess else {
+            throw APIError.decodingFailed
+        }
     }
     
     func attendanceLogs(for studentId: String) async throws -> AttendanceLogs {
@@ -40,7 +45,12 @@ final class AttendanceRepository: AttendanceRepositoryProtocol {
             parameters: ["student_id": studentId],
             credentials: tokenParam
         )
-        return try JSONParser.parse(json: data, key: "attendance")
+        
+        let response = try APIDecoder.decodeAPIResponse(AttendanceLogs.self, from: data)
+        guard let logs = response.model else {
+            throw APIError.decodingFailed
+        }
+        return logs
     }
 
     func studentsAttended(on date: String) async throws -> Students {
@@ -49,6 +59,11 @@ final class AttendanceRepository: AttendanceRepositoryProtocol {
             parameters: ["date": date],
             credentials: tokenParam
         )
-        return try JSONParser.parse(json: data, key: "students")
+        
+        let response = try APIDecoder.decodeAPIResponse(Students.self, from: data)
+        guard let students = response.model else {
+            throw APIError.decodingFailed
+        }
+        return students
     }
 }

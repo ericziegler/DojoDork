@@ -8,6 +8,7 @@ struct AddStudentView: View {
     @Environment(\.dismiss) private var dismiss
 
     @State private var viewModel = AddStudentViewModel()
+    var onStudentAdded: ((_ name: String) -> Void)?
     
     var body: some View {
         NavigationStack {
@@ -53,7 +54,13 @@ struct AddStudentView: View {
     @ViewBuilder private func renderActionButton() -> some View {
         ActionButton(title: "Add Student") {
             Task {
-                await viewModel.createStudent()
+                do {
+                    try await viewModel.createStudent()
+                    onStudentAdded?(viewModel.name)
+                    dismiss()
+                } catch {
+                    viewModel.showAlert(message: "We were unable to add the student at this time.")
+                }
             }
         }
     }

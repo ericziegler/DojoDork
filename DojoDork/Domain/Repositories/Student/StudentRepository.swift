@@ -22,7 +22,7 @@ final class StudentRepository: StudentRepositoryProtocol {
         self.cacheService = cacheService
     }
     
-    func createStudent(name: String, promotionDate: String?) async throws -> Student {
+    func createStudent(name: String, promotionDate: String?) async throws -> String {
         var params: Parameters = ["name": name]
         if let promotionDate = promotionDate {
             params["last_promotion_date"] = promotionDate
@@ -33,7 +33,11 @@ final class StudentRepository: StudentRepositoryProtocol {
             parameters: params,
             credentials: tokenParam
         )
-        return try JSONParser.parse(json: data)
+        
+        let response = try APIDecoder.decodeAPIResponse(StudentId.self, from: data)
+        guard let studentId = response.model?.studentId else { throw APIError.decodingFailed }
+        
+        return studentId
     }
     
     func updateStudent(id: String, name: String?, promotionDate: String?) async throws {
@@ -44,29 +48,38 @@ final class StudentRepository: StudentRepositoryProtocol {
         if let promotionDate = promotionDate {
             params["last_promotion_date"] = promotionDate
         }
-        
-        _ = try await networkService.request(
+                
+        let data = try await networkService.request(
             endpoint: "student/update.php",
             parameters: params,
             credentials: tokenParam
         )
+        
+        let response = try APIDecoder.decodeAPIResponse(EmptyModel.self, from: data)
+        guard response.isSuccess else { throw APIError.decodingFailed }
     }
     
-    // TODO: EZ - Revert
     func listStudents() async throws -> Students {
-        Students.mockData
-//        let data = try await networkService.request(
-//            endpoint: "student/list.php",
-//            credentials: tokenParam
-//        )
-//        return try JSONParser.parse(json: data, key: "students")
+        let data = try await networkService.request(
+            endpoint: "student/list.php",
+            credentials: tokenParam
+        )
+        
+        let response = try APIDecoder.decodeAPIResponse(Students.self, from: data)
+        guard let students = response.model else { throw APIError.decodingFailed }
+        return students
     }
     
     func deleteStudent(id: String) async throws {
-        _ = try await networkService.request(
+        let data = try await networkService.request(
             endpoint: "student/delete.php",
             parameters: ["student_id": id],
             credentials: tokenParam
         )
+        
+        let response = try APIDecoder.decodeAPIResponse(EmptyModel.self, from: data)
+        if !response.isSuccess {
+            throw APIError.decodingFailed
+        }
     }
 }

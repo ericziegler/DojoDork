@@ -27,10 +27,6 @@ struct DependencyContainer {
         return self.shared.resolve(AttendanceRepositoryProtocol.self)!
     }
     
-    static func resolveProgramRepository() -> ProgramRepositoryProtocol {
-        return self.shared.resolve(ProgramRepositoryProtocol.self)!
-    }
-    
     static func resolveStudentRepository() -> StudentRepositoryProtocol {
         return self.shared.resolve(StudentRepositoryProtocol.self)!
     }
@@ -60,12 +56,6 @@ extension DependencyContainer {
             let cacheService = r.resolve(CacheServiceProtocol.self)!
             let networkService = r.resolve(NetworkServiceProtocol.self)!
             return AttendanceRepository(networkService: networkService)
-        }.inObjectScope(.container)
-        
-        container.register(ProgramRepositoryProtocol.self) { r in
-            let cacheService = r.resolve(CacheServiceProtocol.self)!
-            let networkService = r.resolve(NetworkServiceProtocol.self)!
-            return ProgramRepository(networkService: networkService)
         }.inObjectScope(.container)
         
         container.register(StudentRepositoryProtocol.self) { r in

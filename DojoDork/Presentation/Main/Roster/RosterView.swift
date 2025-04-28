@@ -54,13 +54,14 @@ struct RosterView: View {
                     StudentView(student: student)
                 }
             }
-            .sheet(isPresented: $isShowingAddStudentView, onDismiss: {
-                Task {
-                    await viewModel.loadStudents()
+            .sheet(isPresented: $isShowingAddStudentView, content: {
+                AddStudentView { name in
+                    Task {
+                        await viewModel.loadStudents()
+                        viewModel.showAlert(message: "\(name) added!")
+                    }
                 }
-            }) {
-                AddStudentView()
-            }
+            })
         }
     }
     
@@ -102,9 +103,6 @@ struct RosterView: View {
             }
             .padding(.top)
             .padding(.bottom, bottomButtonPadding)
-            .onTapGesture {
-                print("TAPPED")
-            }
         }
         .refreshable {
             await viewModel.loadStudents()
@@ -136,7 +134,7 @@ struct RosterView: View {
             HStack {
                 Spacer()
                 FloatingButton(systemImage: "plus") {
-                    print("Tapped")
+                    isShowingAddStudentView = true
                 }
                 .padding()
             }

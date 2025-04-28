@@ -33,9 +33,8 @@ final class UserRepository: UserRepositoryProtocol {
             parameters: ["email": email, "name": name]
         )
         
-        // Parse status or throw
-        let status: ResponseStatus = try JSONParser.parse(json: data)
-        return status.isSuccessful
+        let response = try APIDecoder.decodeAPIResponse(EmptyModel.self, from: data)
+        return response.isSuccess
     }
     
     func requestLoginCode(email: String) async throws -> Bool {
@@ -44,9 +43,8 @@ final class UserRepository: UserRepositoryProtocol {
             parameters: ["email": email]
         )
         
-        // Parse status or throw
-        let status: ResponseStatus = try JSONParser.parse(json: data)
-        return status.isSuccessful
+        let response = try APIDecoder.decodeAPIResponse(EmptyModel.self, from: data)
+        return response.isSuccess
     }
     
     func validateLoginCode(email: String, code: String) async throws {
@@ -54,9 +52,10 @@ final class UserRepository: UserRepositoryProtocol {
             endpoint: "user/validate_code.php",
             parameters: ["email": email, "code": code]
         )
-        // Expecting: { status: "success", token: "..." }
-        let response = try JSONSerialization.jsonObject(with: data ?? Data()) as? [String: Any]
-        guard let token = response?["token"] as? String else {
+        
+        // Expecting: { "token": "..." }
+        let response = try APIDecoder.decodeAPIResponse(Token.self, from: data)
+        guard let token = response.model?.token else {
             throw APIError.decodingFailed
         }
         
@@ -87,7 +86,12 @@ final class UserRepository: UserRepositoryProtocol {
             return user
         } else {
             let data = try await networkService.request(endpoint: "user/info.php", credentials: ["token": token ?? ""])
-            let user: User = try JSONParser.parse(json: data, key: "user")
+            
+            let response = try APIDecoder.decodeAPIResponse(User.self, from: data)
+            guard let user = response.model else {
+                throw APIError.decodingFailed
+            }
+            
             self.user = user
             saveUser()
             return user

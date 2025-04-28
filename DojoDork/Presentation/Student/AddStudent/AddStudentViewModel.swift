@@ -19,17 +19,13 @@ final class AddStudentViewModel {
         self.studentRepo = studentRepo
     }
     
-    func createStudent() async {
+    func createStudent() async throws {
         isLoading = true
-        do {
-            _ = try await studentRepo.createStudent(name: name, promotionDate: nil)
-        } catch {
-            showAlert(message: "We were unable to create the student at this time.")
-        }
+        _ = try await studentRepo.createStudent(name: name, promotionDate: nil)
         isLoading = false
     }
     
-    private func showAlert(message: String) {
+    func showAlert(message: String) {
         alertMessage = message
         showAlert = true
     }

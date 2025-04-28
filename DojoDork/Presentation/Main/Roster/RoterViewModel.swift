@@ -28,22 +28,10 @@ final class RosterViewModel {
         defer { isLoading = false }
         
         do {
-            let basicStudents = try await studentRepository.listStudents()
-            // TODO: EZ
-            let fetchedStudents = Students.mockData
-//            var summaries: StudentSummaries = []
-//            for student in basicStudents {
-//                do {
-//                    let summary = try await attendanceRepository.studentSummary(for: student.id)
-//                    summaries.append(summary)
-//                } catch {
-//                    print("Failed to load summary for student id \(student.id): \(error.localizedDescription)")
-//                }
-//            }
+            let fetchedStudents = try await studentRepository.listStudents()
             self.students = applySort(to: fetchedStudents)
         } catch {
-            alertMessage = error.localizedDescription
-            showAlert = true
+            showAlert(message: error.localizedDescription)
         }
     }
     
@@ -70,5 +58,10 @@ final class RosterViewModel {
         }
         
         return students.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+    }
+    
+    func showAlert(message: String) {
+        alertMessage = message
+        showAlert = true
     }
 }
