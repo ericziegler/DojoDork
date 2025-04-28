@@ -11,12 +11,17 @@ final class AttendanceViewModel {
     private let attendanceRepository: AttendanceRepositoryProtocol
     private let studentRepository: StudentRepositoryProtocol
     
+    var classDate: Date = Date()
     var students: Students = []
     var isLoading: Bool = false
     var showAlert: Bool = false
     var alertMessage: String = ""
     var sortOption: RosterSortOption = .nameAscending
     var searchText: String = ""
+    
+    var formattedDate: String {
+        DateFormatter.header.string(from: classDate)
+    }
 
     init(
         attendanceRepository: AttendanceRepositoryProtocol = DependencyContainer.resolveAttendanceRepository(),

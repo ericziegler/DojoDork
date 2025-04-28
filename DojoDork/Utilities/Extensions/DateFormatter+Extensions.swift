@@ -18,4 +18,10 @@ extension DateFormatter {
         return dateFormatter
     }
     
+    static var header: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEE. MMM d, yyyy"
+        return dateFormatter
+    }
+    
 }

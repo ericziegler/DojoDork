@@ -8,12 +8,18 @@ struct AttendanceView: View {
     
     @State private var viewModel = AttendanceViewModel()
     @State private var isShowingSortOptions = false
+    @State private var showDatePicker = false
     @Binding var showProfile: Bool
     
     var body: some View {
         NavigationStack {
             SolidBackground {
-                Text("Attendance")
+                VStack {
+                    renderDateBar()
+                    Spacer()
+                    Text("Attendance")
+                    Spacer()
+                }
             }
             .navigationBar(title: "Attendance", leadingItem: {
                 renderProfileButton()
@@ -28,6 +34,34 @@ struct AttendanceView: View {
                         viewModel.sortStudents()
                     }
                 }
+            }
+        }
+    }
+    
+    @ViewBuilder private func renderDateBar() -> some View {
+        HStack {
+            Spacer()
+            Button {
+                showDatePicker = true
+            } label: {
+                HStack(spacing: 12) {
+                    Image(systemName: "calendar")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 22)
+                        .offset(y: -1)
+                    Text("\(viewModel.formattedDate)")
+                        .appButtonStyle()
+                }
+                .padding(24)
+                .foregroundStyle(.appText)
+            }
+            Spacer()
+        }
+        .background(.appCard)
+        .sheet(isPresented: $showDatePicker) {
+            DatePickerView(selectedDate: viewModel.classDate) { date in
+                viewModel.classDate = date
             }
         }
     }

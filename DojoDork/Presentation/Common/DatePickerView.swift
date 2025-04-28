@@ -12,6 +12,18 @@ struct DatePickerView: View {
     var maxDate: Date = Date.distantFuture
     var onDateSelected: ((Date) -> Void)?
     
+    init(
+        selectedDate: Date = Date(),
+        minDate: Date = .distantPast,
+        maxDate: Date = Date(),
+        onDateSelected: ((Date) -> Void)? = nil
+    ) {
+        self._selectedDate = State(initialValue: selectedDate)
+        self.minDate = minDate
+        self.maxDate = maxDate
+        self.onDateSelected = onDateSelected
+    }
+    
     var body: some View {
         NavigationView {
             VStack {

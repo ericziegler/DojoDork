@@ -57,7 +57,7 @@ struct StudentView: View {
                     Text("Are you sure you want to delete this student?")
                 }
                 .sheet(isPresented: $showDatePicker) {
-                    DatePickerView(minDate: .distantPast, maxDate: Date()) { date in
+                    DatePickerView() { date in
                         Task {
                             await viewModel.promoteStudent(date: date)
                             onStudentPromoted?(viewModel.studentId)
