@@ -13,6 +13,7 @@ struct RosterView: View {
     @State private var isShowingAddStudentView = false
     @State private var scrollTargetStudentId = ""
     @State private var taskId: UUID = .init()
+    @State private var hapticFeedback = false
     private let bottomButtonPadding = 80.0
 
     var body: some View {
@@ -105,6 +106,7 @@ struct RosterView: View {
                             .padding(.horizontal)
                             .onTapGesture {
                                 DispatchQueue.main.async {
+                                    self.hapticFeedback.toggle()
                                     self.selectedStudent = student
                                 }
                             }

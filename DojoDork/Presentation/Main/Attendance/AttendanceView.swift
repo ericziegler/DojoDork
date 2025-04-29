@@ -9,16 +9,22 @@ struct AttendanceView: View {
     @State private var viewModel = AttendanceViewModel()
     @State private var isShowingSortOptions = false
     @State private var showDatePicker = false
+    @State private var taskId: UUID = .init()
+    @State private var hapticFeedback = false
     @Binding var showProfile: Bool
     
     var body: some View {
         NavigationStack {
             SolidBackground {
-                VStack {
+                VStack(spacing: 0) {
                     renderDateBar()
-                    Spacer()
-                    Text("Attendance")
-                    Spacer()
+                    if viewModel.isLoading && viewModel.students.isEmpty {
+                        LoadingView()
+                    } else if viewModel.students.isEmpty {
+                        renderContentUnavailable()
+                    } else {
+                        renderAttendanceList()
+                    }
                 }
             }
             .navigationBar(title: "Attendance", leadingItem: {
@@ -34,6 +40,9 @@ struct AttendanceView: View {
                         viewModel.sortStudents()
                     }
                 }
+            }
+            .task(id: taskId) {
+                await viewModel.loadStudents()
             }
         }
     }
@@ -53,7 +62,7 @@ struct AttendanceView: View {
                     Text("\(viewModel.formattedDate)")
                         .appButtonStyle()
                 }
-                .padding(24)
+                .padding(.vertical, 16)
                 .foregroundStyle(.appText)
             }
             Spacer()
@@ -62,6 +71,53 @@ struct AttendanceView: View {
         .sheet(isPresented: $showDatePicker) {
             DatePickerView(selectedDate: viewModel.classDate) { date in
                 viewModel.classDate = date
+                Task {
+                    await viewModel.loadStudents()
+                }
+            }
+        }
+    }
+    
+    @ViewBuilder private func renderAttendanceList() -> some View {
+        ScrollView {
+            LazyVStack(spacing: 16) {
+                ForEach(viewModel.filteredStudents, id: \.id) { student in
+                    AttendanceCard(student: student)
+                        .id(student.id)
+                        .padding(.horizontal)
+                        .onTapGesture {
+                            hapticFeedback.toggle()
+                            Task {
+                                await viewModel.toggleAttendance(for: student.id)
+                            }
+                        }
+                }
+            }
+            .padding(.vertical, 16)
+        }
+        .refreshable {
+            taskId = .init()
+        }
+        .task(id: taskId) {
+            await viewModel.loadStudents()
+        }
+    }
+    
+    @ViewBuilder private func renderContentUnavailable() -> some View {
+        ContentUnavailableView {
+            Image(systemName: "person.fill.checkmark")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 50, height: 50)
+                .padding(.bottom, 8)
+        } description: {
+            Text("No students found.")
+                .appLinkStyle()
+        } actions: {
+            LinkButton(title: "Refresh") {
+                Task {
+                    await viewModel.loadStudents()
+                }
             }
         }
     }

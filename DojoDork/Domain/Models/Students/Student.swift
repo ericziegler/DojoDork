@@ -7,11 +7,16 @@ import Foundation
 typealias Students = [Student]
 
 struct Student: Codable, Identifiable {
+    
+    // MARK: - Properties
+    
     let id: String
     let name: String
     let lastPromotionDate: Date? // format: yyyy-MM-dd
     var classCountTotal: Int = 0
     var classCountSincePromo: Int = 0
+    
+    var attendanceStatus: AttendanceStatus = .notAttended
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -19,6 +24,33 @@ struct Student: Codable, Identifiable {
         case lastPromotionDate = "last_promotion_date"
         case classCountTotal = "total_classes_attended"
         case classCountSincePromo = "classes_since_last_promotion"
+    }
+    
+    // MARK: - Init
+    
+    init(
+        id: String,
+        name: String,
+        lastPromotionDate: Date? = nil,
+        classCountTotal: Int = 0,
+        classCountSincePromo: Int = 0,
+        attendanceStatus: AttendanceStatus = .notAttended
+    ) {
+        self.id = id
+        self.name = name
+        self.lastPromotionDate = lastPromotionDate
+        self.classCountTotal = classCountTotal
+        self.classCountSincePromo = classCountSincePromo
+        self.attendanceStatus = attendanceStatus
+    }
+    
+    init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(String.self, forKey: .id)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.lastPromotionDate = try container.decodeIfPresent(Date.self, forKey: .lastPromotionDate)
+        self.classCountTotal = try container.decodeIfPresent(Int.self, forKey: .classCountTotal) ?? 0
+        self.classCountSincePromo = try container.decodeIfPresent(Int.self, forKey: .classCountSincePromo) ?? 0
     }
 }
 

@@ -73,6 +73,8 @@
 		788AC49D2DBF242F00B900A6 /* EmptyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AC49C2DBF242D00B900A6 /* EmptyModel.swift */; };
 		788AC49F2DBF288A00B900A6 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AC49E2DBF288900B900A6 /* Token.swift */; };
 		788AC4A12DBF2B8500B900A6 /* StudentId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AC4A02DBF2B8300B900A6 /* StudentId.swift */; };
+		788AC4A32DC0232900B900A6 /* AttendanceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AC4A22DC0232600B900A6 /* AttendanceCard.swift */; };
+		788AC4A52DC06AE600B900A6 /* AttendanceStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AC4A42DC06AE200B900A6 /* AttendanceStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -142,6 +144,8 @@
 		788AC49C2DBF242D00B900A6 /* EmptyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyModel.swift; sourceTree = "<group>"; };
 		788AC49E2DBF288900B900A6 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		788AC4A02DBF2B8300B900A6 /* StudentId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentId.swift; sourceTree = "<group>"; };
+		788AC4A22DC0232600B900A6 /* AttendanceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceCard.swift; sourceTree = "<group>"; };
+		788AC4A42DC06AE200B900A6 /* AttendanceStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				78220FE52DB47BBD00473F39 /* Student.swift */,
+				788AC4A42DC06AE200B900A6 /* AttendanceStatus.swift */,
 				788AC4A02DBF2B8300B900A6 /* StudentId.swift */,
 			);
 			path = Students;
@@ -520,6 +525,7 @@
 		7822105F2DB5725B00473F39 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				788AC4A22DC0232600B900A6 /* AttendanceCard.swift */,
 				782210472DB5710600473F39 /* DatePickerView.swift */,
 				782210562DB571DA00473F39 /* EditEntityView.swift */,
 				782210592DB5720D00473F39 /* LoadingView.swift */,
@@ -672,6 +678,7 @@
 				788AC48C2DBD829A00B900A6 /* FloatingButton.swift in Sources */,
 				782210332DB56F9F00473F39 /* CodeEntryView.swift in Sources */,
 				7822103E2DB5705C00473F39 /* MainTabView.swift in Sources */,
+				788AC4A52DC06AE600B900A6 /* AttendanceStatus.swift in Sources */,
 				782210512DB5718700473F39 /* ProfileView.swift in Sources */,
 				782210012DB4861900473F39 /* CacheServiceProtocol.swift in Sources */,
 				782210382DB56FFA00473F39 /* CreateAccountViewModel.swift in Sources */,
@@ -682,6 +689,7 @@
 				788AC49F2DBF288A00B900A6 /* Token.swift in Sources */,
 				782210122DB48BD000473F39 /* Notification+Extensions.swift in Sources */,
 				782210632DB5732200473F39 /* AppField.swift in Sources */,
+				788AC4A32DC0232900B900A6 /* AttendanceCard.swift in Sources */,
 				782210532DB5718E00473F39 /* ProfileVIewModel.swift in Sources */,
 				78220FE62DB47BBE00473F39 /* Student.swift in Sources */,
 				782210182DB48E7800473F39 /* UserRepository.swift in Sources */,
