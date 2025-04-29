@@ -97,13 +97,12 @@ final class AttendanceViewModel {
             return
         }
 
+        let student = students[index]
+        let isCurrentlyAttended = (student.attendanceStatus == .attended)
         students[index].attendanceStatus = .updating
 
         do {
-            let student = students[index]
-            let isCurrentlyAttended = (student.attendanceStatus == .attended)
             let newAttendStatus = !isCurrentlyAttended
-
             try await attendanceRepository.toggleAttendance(
                 for: student.id,
                 on: DateFormatter.attendance.string(from: classDate),

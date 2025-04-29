@@ -32,6 +32,7 @@ struct AttendanceView: View {
             }, trailingItem: {
                 renderSortButton()
             })
+            .sensoryFeedback(.impact, trigger: hapticFeedback)
             .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always))
             .confirmationDialog("Sort By", isPresented: $isShowingSortOptions, titleVisibility: .visible) {
                 ForEach(RosterSortOption.allCases) { option in

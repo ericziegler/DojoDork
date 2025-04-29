@@ -48,6 +48,7 @@ struct RosterView: View {
                 
                 renderAddButton()
             }
+            .sensoryFeedback(.impact, trigger: hapticFeedback)
             .alert(viewModel.alertMessage, isPresented: $viewModel.showAlert) {
                 Button("OK", role: .cancel) {}
             }

@@ -56,7 +56,11 @@ struct EditEntityView: View {
     }
     
     @ViewBuilder private func renderField() -> some View {
-        AppField(placeholder: placeholder, text: $text, type: textFieldType)
+        AppField(
+            placeholder: placeholder,
+            text: $text,
+            type: textFieldType            
+        )
             .padding(.bottom, 24)
     }
     

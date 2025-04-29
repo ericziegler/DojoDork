@@ -65,7 +65,8 @@ struct CreateAccountView: View {
         VStack(spacing: 16) {
             AppField(
                 placeholder: "Name",
-                text: $viewModel.name
+                text: $viewModel.name,
+                type: .name
             )
 
             AppField(

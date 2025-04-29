@@ -47,7 +47,11 @@ struct AddStudentView: View {
     }
     
     @ViewBuilder private func renderName() -> some View {
-        AppField(placeholder: "Student Name", text: $viewModel.name)
+        AppField(
+            placeholder: "Student Name",
+            text: $viewModel.name,
+            type: .name
+        )
             .padding(.bottom, 24)
     }
     

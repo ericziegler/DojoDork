@@ -11,6 +11,7 @@ enum TextFieldType {
     case title
     case search
     case number
+    case name
 
     var autocapitalization: UITextAutocapitalizationType {
         switch self {
@@ -18,14 +19,14 @@ enum TextFieldType {
             return .none
         case .title:
             return .words
-        case .plain:
+        case .plain, .name:
             return .sentences
         }
     }
 
     var disableAutocorrection: Bool {
         switch self {
-        case .email, .password, .number:
+        case .email, .password, .number, .name:
             return true
         case .plain, .search, .title:
             return false
@@ -36,7 +37,7 @@ enum TextFieldType {
         switch self {
         case .email:
             return .emailAddress
-        case .password, .plain, .search, .title:
+        case .password, .plain, .search, .title, .name:
             return .default
         case .number:
             return .numberPad
@@ -49,7 +50,7 @@ enum TextFieldType {
             return .emailAddress
         case .password:
             return .password
-        case .plain, .number, .search, .title:
+        case .plain, .number, .search, .title, .name:
             return nil
         }
     }

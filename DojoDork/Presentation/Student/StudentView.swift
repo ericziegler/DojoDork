@@ -86,7 +86,11 @@ struct StudentView: View {
     
     @ViewBuilder private func renderName() -> some View {
         if isEditing {
-            AppField(placeholder: "Student Name", text: $viewModel.name)
+            AppField(
+                placeholder: "Student Name",
+                text: $viewModel.name,
+                type: .name
+            )
         } else {
             Text(viewModel.name)
                 .appLargeHeaderStyle()
